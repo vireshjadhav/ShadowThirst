@@ -101,3 +101,11 @@ InitTestScene*.unity*
 # Unity temporary lock / process files
 *.pid
 *.lock
+
+# Ignore Unity generated folders inside project subfolder
+ShadowThirst/Library/
+ShadowThirst/Logs/
+ShadowThirst/UserSettings/
+
+# Visual Studio config
+.vsconfig
