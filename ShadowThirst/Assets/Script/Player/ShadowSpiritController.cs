@@ -7,7 +7,8 @@ public class ShadowSpiritController : MonoBehaviour
     [SerializeField] private VirtualJoystickController joystickController;
     [SerializeField] private Rigidbody2D rb2D;
 
-    private bool isShielded = false;
+    //Public getter with private setter provides controlled access to shield status
+    public bool isShielded { get; private set; }
     private bool isDead = false;
 
     private void Awake()
@@ -17,26 +18,30 @@ public class ShadowSpiritController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if ( rb2D  == null || joystickController == null ) return;
+        //Early exit if references are missing or player is dead
+        if ( rb2D  == null || joystickController == null  || isDead) return;
 
         Vector2 input = joystickController.Direction;
+        //Only move if there's significant input
         if (input.sqrMagnitude > 0.001f)
         {
+            //Move the character using physics-based movement
             rb2D.MovePosition(rb2D.position + input * movementSpeed * Time.fixedDeltaTime);
         }
     }
 
     public void DieFromLight()
     {
+        //Don't die if shielded or already dead
         if (isShielded) return;
-
         if (isDead) return;
 
         isDead = true;
-
+        
+        //Disable physics simulation so the character stops interacting with the world
         if (rb2D != null)
         {
-            GetComponent<Rigidbody2D>().simulated = false;
+            rb2D.simulated = false;
         }
     }
 }
