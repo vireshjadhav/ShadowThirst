@@ -38,7 +38,7 @@ public class LightHazardController : MonoBehaviour
             ShadowSpiritController shadowSpirit = other.GetComponent<ShadowSpiritController>();
 
             //If we found a ShadowSpiritController component, check shield status  and trigger its light death
-            if (shadowSpirit != null && !shadowSpirit.IsShielded)
+            if (shadowSpirit != null && !shadowSpirit.IsShieldActivated)
             {
                 shadowSpirit.DieFromLight();
             }
