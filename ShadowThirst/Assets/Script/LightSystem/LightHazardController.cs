@@ -23,21 +23,24 @@ public class LightHazardController : MonoBehaviour
             spriteRenderer.enabled = active;
     }
 
-    // Returns current hazard state
+    // Returns whether the hazard is currently active 
     public bool GetHazardActive()
     {
+        // Return false if collider is destroyed or missing
+        if (hazardCollider  == null) return false;
+
         return hazardCollider.enabled;
     }
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //Check if the colliding object has the "Player" tag
+        // Check if the colliding object has the "Player" tag
         if (other.CompareTag("Player"))
         {
             ShadowSpiritController shadowSpirit = other.GetComponent<ShadowSpiritController>();
 
-            //If we found a ShadowSpiritController component, check shield status  and trigger its light death
+            // If we found a ShadowSpiritController component, check shield status and trigger its light death
             if (shadowSpirit != null && !shadowSpirit.IsShieldActivated)
             {
                 shadowSpirit.DieFromLight();

@@ -89,10 +89,10 @@ public class LightSystemController : MonoBehaviour
             HandlePatrol();
         }
 
-        //Handle rotation state changes
+        // Handle rotation state changes
         if (enableRotation && !wasRotationEnabled)
         {
-            //Rotation was just enabled, initialize it
+            // Rotation was just enabled, initialize it
             InitializeRotation();
         }
         else if (!enableRotation && wasRotationEnabled)
@@ -101,19 +101,19 @@ public class LightSystemController : MonoBehaviour
             StopRotation();
         }
 
-        //Update rotation if active
+        // Update rotation if active
         if (enableRotation && isRotating)
         {
             HandleRotation();
         }
 
-        //Track previous rotation state for next frame
+        // Track previous rotation state for next frame
         wasRotationEnabled = enableRotation;
     }
 
     private void OnDisable()
     {
-        //Cleanly stop all owned coroutines when disabled
+        // Cleanly stop all owned coroutines when disabled
         StopToggleCycle();
         StopRotation();
         StopPatrol();
@@ -122,13 +122,13 @@ public class LightSystemController : MonoBehaviour
     // -------------------- PATROL --------------------
     private void HandlePatrol()
     {
-        //Skip movement if we're waiting at a patrol point
+        // Skip movement if we're waiting at a patrol point
         if (isWaitingPatrol) return;
 
-        //Move towards the current patrol target
+        // Move towards the current patrol target
         transform.position = Vector3.MoveTowards(transform.position, patrolTarget, patrolSpeed * Time.deltaTime);
 
-        //If we've reached the target (within tolerance), start the delay
+        // If we've reached the target (within tolerance), start the delay
         if (Vector3.Distance(transform.position, patrolTarget) < 0.01f)
         {
             patrolCoroutine = StartCoroutine(PatrolDelay());
@@ -140,8 +140,8 @@ public class LightSystemController : MonoBehaviour
         isWaitingPatrol = true;
         yield return new WaitForSeconds(patrolDelay);
 
-        //Switch to the other patrol point after waiting
-        patrolTarget =  patrolTarget == pointA ? pointB : pointA;
+        // Switch to the other patrol point after waiting
+        patrolTarget = patrolTarget == pointA ? pointB : pointA;
         isWaitingPatrol = false;
     }
 
@@ -159,10 +159,10 @@ public class LightSystemController : MonoBehaviour
 
     private void InitializeRotation()
     {
-        //Determine which rotation target (A or B) is closest to current rotation
+        // Determine which rotation target (A or B) is closest to current rotation
         float current = transform.rotation.eulerAngles.z;
-        float distToA = MathF.Abs(Mathf.DeltaAngle(current, angleA));
-        float distToB = MathF.Abs(Mathf.DeltaAngle(current, angleB));
+        float distToA = Mathf.Abs(Mathf.DeltaAngle(current, angleA));
+        float distToB = Mathf.Abs(Mathf.DeltaAngle(current, angleB));
 
         targetIsB = distToB < distToA;
         rotationTarget = targetIsB ? angleB : angleA;
@@ -175,7 +175,7 @@ public class LightSystemController : MonoBehaviour
         startRotation = transform.rotation;
         endRotation = Quaternion.Euler(0f, 0f, rotationTarget);
 
-        //If we're already at the target angle, just wait instead of rotating
+        // If we're already at the target angle, just wait instead of rotating
         if (Quaternion.Angle(startRotation, endRotation) < 0.1f)
         {
             isWaitingRotation = true;
@@ -188,15 +188,15 @@ public class LightSystemController : MonoBehaviour
         isWaitingRotation = false;
     }
 
-    private  void HandleRotation()
+    private void HandleRotation()
     {
-        //Update rotation interpolation
+        // Update rotation interpolation
         rotationTimer += Time.deltaTime;
         float t = Mathf.Clamp01(rotationTimer / rotationDuration);
 
         transform.rotation = Quaternion.Slerp(startRotation, endRotation, t);
 
-        //If rotation is complete, start waiting before next rotation
+        // If rotation is complete, start waiting before next rotation
         if (t >= 1f && !isWaitingRotation)
         {
             rotationCoroutine = StartCoroutine(RotationDelay());
@@ -217,7 +217,7 @@ public class LightSystemController : MonoBehaviour
         isWaitingRotation = false;
         rotationCoroutine = null;
 
-        StartRotation(); //Start rotating to the new target
+        StartRotation(); // Start rotating to the new target
     }
 
     // Stops rotation behavior and safely terminates any active rotation coroutine
@@ -321,7 +321,7 @@ public class LightSystemController : MonoBehaviour
     }
 
     // Forces the light OFF and pauses automatic toggling (for safe zones or relief moments)
-    public void ForceLightOff()
+    public void ForcedLightOff()
     {
         StopToggleCycle();
         TurnLightOff();

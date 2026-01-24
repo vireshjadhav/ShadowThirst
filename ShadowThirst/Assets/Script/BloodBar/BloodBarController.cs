@@ -27,7 +27,7 @@ public class BloodBarController : MonoBehaviour
         float currentHealth = ShadowSpiritController.Instance.HealthPoint;
         float maxHealth = ShadowSpiritController.Instance.MaxHealth;
 
-        // Update UI only when health actually changes
+        // Only update UI when health changes significantly (0.01 threshold) 
         if (Mathf.Abs(currentHealth - lastHealth) > 0.01f)
         {
             UpdateHealthBar(currentHealth, maxHealth);
@@ -42,9 +42,9 @@ public class BloodBarController : MonoBehaviour
 
         float healthPointPercent = Mathf.Clamp01(currentHealth / maxHealth);
 
-        //Update the scale
-        Vector3 newsScale = filler.localScale;
-        newsScale.x = originalScale .x * healthPointPercent;
-        filler.localScale = newsScale;
+        // Update the scale
+        Vector3 newScale = filler.localScale;
+        newScale.x = originalScale.x * healthPointPercent;
+        filler.localScale = newScale;
     }
 }

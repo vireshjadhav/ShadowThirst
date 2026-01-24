@@ -14,8 +14,7 @@ public class SpeedBoostVialController : MonoBehaviour
                 shadowSpirit.SpeedBoost();
             }
 
-            // Destroy vial
-            Destroy(this.gameObject);
+            Destroy(this.gameObject); // Collect speed boost vial
         }
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5397775095513625870}
   - component: {fileID: 9112498976366301914}
   - component: {fileID: 3342434292523101053}
+  - component: {fileID: 4452793465417361077}
   m_Layer: 0
   m_Name: ShadowSpirit
   m_TagString: Player
@@ -213,4 +214,24 @@ MonoBehaviour:
   normalDecayAmount: 1
   finalPhaseDecayMultiplier: 1
   shieldLife: 10
-  playerAnimator: {fileID: 0}
+  playerAnimator: {fileID: 9112498976366301914}
+--- !u!114 &4452793465417361077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6868638825719116870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4035a7c8330aa04a92e9245d99f2c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
+  shadowSpiritController: {fileID: 3342434292523101053}
+  bloodBatPoints: 2
+  toxicDamage: 1
+  durationBonusBatPoint: 1
+  phaseOneScoreInterval: 5
+  phaseTwoScoreInterval: 2
+  phaseThreeScoreInterval: 1
+  phaseFourScoreInterval: 0.5
