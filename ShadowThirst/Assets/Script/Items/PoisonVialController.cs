@@ -11,11 +11,14 @@ public class PoisonVialController : MonoBehaviour
 
             if (shadowSpirit != null)
             {
-                shadowSpirit.TakeDamage(shadowSpirit.DamagePoint);
+                shadowSpirit.TakeDamage(shadowSpirit.DamagePoint);       // Damage player
+                if (ScoreManager.Instance != null)
+                {
+                    ScoreManager.Instance.SubtractBatPoints();               // Reduce score
+                }
             }
 
-            // Destroy vial 
-            Destroy(this.gameObject);
+            Destroy(this.gameObject);        // Consume pickup
         }
     }
 }

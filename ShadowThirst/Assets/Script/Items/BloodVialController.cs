@@ -7,16 +7,19 @@ public class BloodVialController : MonoBehaviour
         // Triggers when player collides with the blood vial
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
             ShadowSpiritController shadowSpirit = other.gameObject.GetComponent<ShadowSpiritController>();
 
             if (shadowSpirit != null)
             {
-                shadowSpirit.Heal(shadowSpirit.HealPoint);
-            }
+                shadowSpirit.Heal(shadowSpirit.HealPoint);      // Heal player
 
-            // Destroy vial 
-            Destroy(this.gameObject);
+                if (ScoreManager.Instance != null)
+                {
+                    ScoreManager.Instance.AddBatPoints();           // Add score
+                }
+            } 
+
+            Destroy(this.gameObject);       // Consume pickup
         }
     }
 }

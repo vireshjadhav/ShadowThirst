@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
-using static UnityEngine.Rendering.DebugUI.Table;
 
 public class ShadowSpiritController : MonoBehaviour
 {
+    public static ShadowSpiritController Instance { get; private set; }   // Singleton instance for global, controlled access
+
     [Header("Health Settings")]
     [SerializeField] private float maxHealth = 100f;       //The maximum amount of health the player can have
     [SerializeField] private float initialHealth = 100f;   // Health value when the game starts
@@ -31,7 +31,7 @@ public class ShadowSpiritController : MonoBehaviour
     [SerializeField] private float firstPhaseInterval = 5.0f;      // How often (in seconds) health decays in phase 1
     [SerializeField] private float secondPhaseInterval = 2.0f;     // How often (in seconds) health decays in phase 2
     [SerializeField] private float thirdPhaseInterval = 1.0f;      // How often (in seconds) health decays in phase 3
-    [SerializeField] private float fourthPhaseInterval = 0.5f;     //How often(in seconds) health decays in final phase
+    [SerializeField] private float fourthPhaseInterval = 0.5f;     // How often (in seconds) health decays in final phase
 
 
     [Header("Decay Amounts")]
@@ -45,8 +45,6 @@ public class ShadowSpiritController : MonoBehaviour
     [Header("Animator Reference")]
     [SerializeField] private Animator playerAnimator;    // Controls all player animations (walking, idle, hurt, death)
 
-    public static ShadowSpiritController Instance { get; private set; }   // Singleton instance for global, controlled access
-
     private float startTime;                            // Timestamp when gameplay started
     private float healthDecayTimer = 0f;                // Accumulates time to trigger tick-based health decay
     private bool isMoving = false;                      // True when player is currently moving, false when idle
@@ -57,18 +55,22 @@ public class ShadowSpiritController : MonoBehaviour
     private Coroutine currentSpeedBoostCoroutine;       // Reference to the active speed boost timer coroutine
     private Coroutine currentShieldCoroutine;           // Reference to the active shield timer coroutine
     private Coroutine deathCoroutine;                   // Reference to the death/destruction sequence coroutine
+    
 
 
-    #region Public State(Read-Only)
-    //Public getter with private setter provides controlled access to shield status
+    #region Public State (Read-Only)
+    // Public getter with private setter provides controlled access to shield status
     public bool IsShieldActivated { get; private set; }   // Indicates whether the player is currently protected from damage
     public bool IsDead { get; private set; }              // Indicates whether the player is dead (prevents duplicate logic)
     public float HealthPoint { get; private set; }        // Current health value (clamped between 0 and maxHealth)
     public float MaxHealth => maxHealth;                  // Exposes max health safely
-    public float DamagePoint => damagePoint;              //Expose damage point safely
-    public float HealPoint => healPoint;                  //Expose heal point safely
-    public bool IsSpeedBoosted => isSpeedBoosted;         //Expose speed boost status safely
-
+    public float DamagePoint => damagePoint;              // Expose damage point safely
+    public float HealPoint => healPoint;                  // Expose heal point safely
+    public bool IsSpeedBoosted => isSpeedBoosted;         // Expose speed boost status safely
+    public float PhaseOneEndTime => phaseOneEndTime;      // Expose phase one time safely
+    public float PhaseTwoEndTime => phaseTwoEndTime;      // Expose phase two time safely
+    public float PhaseThreeEndTime => phaseThreeEndTime;  // Expose phase three time safely
+    public float StartTime => startTime;                  // Expose game start time safely
     #endregion
 
     private void Awake()
@@ -92,7 +94,7 @@ public class ShadowSpiritController : MonoBehaviour
     {
         startTime = Time.time;   // Record gameplay start time
 
-        HealthPoint = Mathf.Clamp(initialHealth, 0f, maxHealth);      // Initialize health safely
+        HealthPoint = Mathf.Clamp(initialHealth, 0f, maxHealth);      // Initialize health with clamping
         originalSpeed = movementSpeed;     // Store original speed for resetting later
         maxBoostSpeed = movementSpeed * speedBoostMultiplier;        // Calculate maximum boosted speed
     }
@@ -137,22 +139,22 @@ public class ShadowSpiritController : MonoBehaviour
         // Calculate absolute values for comparison
         float absX = Mathf.Abs(input.x);
         float absY = Mathf.Abs(input.y);
-        float prevX = MathF.Abs(previousDirection.x);
-        float prevY = MathF.Abs(previousDirection.y);
+        float prevX = Mathf.Abs(previousDirection.x);
+        float prevY = Mathf.Abs(previousDirection.y);
 
-        isMoving = input.sqrMagnitude < 0.001f;
+        isMoving = input.sqrMagnitude > 0.001f;
 
 
         // Handle animation states when moving
         if (isMoving)
         {
-            if (absX > absY && playerAnimator != null)
+            if ( absX > absY && playerAnimator != null)
             {
                 playerAnimator.SetFloat("X", input.x);
                 playerAnimator.SetFloat("Y", 0f);
             }
 
-            if (absY > absX && playerAnimator != null)
+            if ( absY > absX && playerAnimator != null)
             {
                 playerAnimator.SetFloat("X", 0f);
                 playerAnimator.SetFloat("Y", input.y);
@@ -206,7 +208,6 @@ public class ShadowSpiritController : MonoBehaviour
     // Returns the decay interval (seconds between ticks) based on elapsed time.
     private float GetCurrentDecayInterval(float elapsedTime)
     {
-        
         if (elapsedTime < phaseOneEndTime) return firstPhaseInterval;
         if (elapsedTime < phaseTwoEndTime) return secondPhaseInterval;
         if (elapsedTime < phaseThreeEndTime) return thirdPhaseInterval;
@@ -218,24 +219,27 @@ public class ShadowSpiritController : MonoBehaviour
     {
         float baseDecay = normalDecayAmount;
 
-        // Final phase: highest danger
+        // No decay in safe phase
+        if (elapsedTime < safeDuration)
+            return 0f;
+
+        // Early decay phase (after safe period, before phaseOneEndTime)
         if (elapsedTime < phaseOneEndTime)
             return baseDecay * 0.5f;
 
-        // Late-game pressure increase
+        // Transitional phase (between early and mid)
         if (elapsedTime < phaseTwoEndTime)
             return baseDecay;
 
-        // Early decay phase
+        // Late-game pressure increase
         if (elapsedTime < phaseThreeEndTime)
             return baseDecay * 1.5f;
 
-        // Transitional phase (between early and mid)
-        return baseDecay * finalPhaseDecayMultiplier;
+        return baseDecay * finalPhaseDecayMultiplier;      // Final phase: highest danger  
     }
 
     // Modifies health safely and checks for death condition.
-    public void UpdateHealth(float amount)
+    private void UpdateHealth(float amount)
     {
         if (IsDead) return;
 
@@ -257,19 +261,26 @@ public class ShadowSpiritController : MonoBehaviour
         {
             input = joystickController.Direction;
         }
-        
+        else
+        {
+            Debug.LogWarning("JoystickController reference missing in TakeDamage");
+        }
+
         if (IsShieldActivated || IsDead) return;
+
         UpdateHealth(-damage);
+
         if (playerAnimator != null)
         {
             playerAnimator.SetTrigger("Hurt");
         }
+
         UpdateSprite(input);
     }
 
 
     // Heals the player (clamped internally).
-    public void Heal (float amount)
+    public void Heal(float amount)
     {
 
         UpdateHealth(amount);
@@ -288,7 +299,7 @@ public class ShadowSpiritController : MonoBehaviour
         movementSpeed = maxBoostSpeed;
         isSpeedBoosted = true;
 
-        currentSpeedBoostCoroutine =  StartCoroutine(ResetSpeedAfterDelay(speedEffectTimer));
+        currentSpeedBoostCoroutine = StartCoroutine(ResetSpeedAfterDelay(speedEffectTimer));
     }
 
 
@@ -322,11 +333,10 @@ public class ShadowSpiritController : MonoBehaviour
 
         IsDead = true;
 
-        //Disable physics simulation so the character stops interacting with the world
+        // Disable physics simulation so the character stops interacting with the world
         if (rb2D != null)
         {
             rb2D.simulated = false;
-            Debug.Log("Player died from blood thirst");
         }
 
         Debug.Log($"Game Time from start:  {Time.time - startTime}");
@@ -369,7 +379,7 @@ public class ShadowSpiritController : MonoBehaviour
 
 
     // Player collects a shield for later use
-    public void AcquiredShield()
+    public void CollectShield()
     {
         if (haveShield) return;
         haveShield = true;
@@ -377,7 +387,7 @@ public class ShadowSpiritController : MonoBehaviour
 
 
     // Activates collected shield for temporary protection
-    public void ActiveShield()
+    public void ActivateShield()
     {
         if (!haveShield) return;
 
@@ -387,19 +397,18 @@ public class ShadowSpiritController : MonoBehaviour
         }
 
         IsShieldActivated = true;
-        currentShieldCoroutine = StartCoroutine(DeactivateAfterDelay(shieldLife));
+        currentShieldCoroutine = StartCoroutine(DeactivateShieldAfterDelay(shieldLife));
     }
 
 
     // Coroutine to deactivate shield after its duration expires
-    private IEnumerator DeactivateAfterDelay(float shieldLife)
+    private IEnumerator DeactivateShieldAfterDelay(float shieldLife)
     {
         yield return new WaitForSeconds(shieldLife);
         IsShieldActivated = false;
         haveShield = false;
         currentShieldCoroutine = null;
     }
-
 
     // Cleans up singleton reference when object is destroyed
     private void OnDestroy()
@@ -408,5 +417,4 @@ public class ShadowSpiritController : MonoBehaviour
         if (Instance == this)
             Instance = null;
     }
-
 }

@@ -7,18 +7,18 @@ using UnityEngine.Tilemaps;
 public class ItemSpawnerController : MonoBehaviour
 {
     // Enum defining the different types of items that can be spawned
-    private enum Items {BloodVial, ShieldVial, PoisonVial, SpeedBoostVail }
+    private enum Items {BloodVial, ShieldVial, PoisonVial, SpeedBoostVial }
 
     public Tilemap tilemap;                          // Reference to the tilemap used for valid spawn positions
     public GameObject[] objectPrefabs;               // Array of prefabs matching the Items enum order
     public float bloodVialsProbability = 0.4f;       // Chance to spawn a blood vial (healing)
     public float shieldVialProbability = 0.2f;       // Chance to spawn a shield vial (protection)
-    public float poisoneVialProbabilty = 0.3f;       // Chance to spawn a poison vial (damage)
+    public float poisonVialProbabilty = 0.3f;       // Chance to spawn a poison vial (damage)
     public float speedBoostVialProbability = 0.1f;   // Chance to spawn a speed boost vial (movement)
 
     public int maxObjects = 20;            // Maximum number of items allowed in the scene
-    public float vialsLife = 10f;          // How long items remain before auto-destruction
-    public float spawnIntervals = 1f;      // Time between spawn attempts
+    public float vialLifetime  = 10f;          // How long items remain before auto-destruction
+    public float spawnInterval = 1f;      // Time between spawn attempts
 
     private List<Vector3> validSpawnPositions = new List<Vector3>();       // All possible spawn locations on tilemap
     private List<GameObject> spawnObjects = new List<GameObject>();        // Currently active spawned items
@@ -48,10 +48,10 @@ public class ItemSpawnerController : MonoBehaviour
     {
         validSpawnPositions.Clear();
         BoundsInt boundsInt = tilemap.cellBounds;
-        TileBase[] allTiles =  tilemap.GetTilesBlock(boundsInt);
+        TileBase[] allTiles = tilemap.GetTilesBlock(boundsInt);
         Vector3 start = tilemap.CellToWorld(new Vector3Int(boundsInt.xMin, boundsInt.yMin, 0));
 
-        for (int x = 0; x <  boundsInt.size.x; x++)
+        for (int x = 0; x < boundsInt.size.x; x++)
         {
             for (int y = 0; y < boundsInt.size.y; y++)
             {
@@ -97,10 +97,10 @@ public class ItemSpawnerController : MonoBehaviour
         if (validPositionFound)
         {
             Items itemType = RandomObjectType();
-            GameObject gameObject = Instantiate(objectPrefabs[(int) itemType], spawnPosition, Quaternion.identity);
-            spawnObjects.Add(gameObject);
+            GameObject spawnedObject = Instantiate(objectPrefabs[(int) itemType], spawnPosition, Quaternion.identity);
+            spawnObjects.Add(spawnedObject);
 
-            StartCoroutine(DestroyAfterDelay(gameObject, vialsLife));
+            StartCoroutine(DestroyAfterDelay(spawnedObject, vialLifetime));
         }
     }
 
@@ -121,13 +121,13 @@ public class ItemSpawnerController : MonoBehaviour
         {
             return Items.BloodVial;
         }
-        else if (randomChoice <= (bloodVialsProbability + poisoneVialProbabilty))
+        else if (randomChoice <= (bloodVialsProbability + poisonVialProbabilty))
         {
             return Items.PoisonVial;
         }
-        else if (randomChoice <= (bloodVialsProbability + poisoneVialProbabilty + speedBoostVialProbability))
+        else if (randomChoice <= (bloodVialsProbability + poisonVialProbabilty + speedBoostVialProbability))
         {
-            return Items.SpeedBoostVail;
+            return Items.SpeedBoostVial;
         }
         else
         {
@@ -164,7 +164,7 @@ public class ItemSpawnerController : MonoBehaviour
         while(ActiveObjectCount() < maxObjects)
         {
             SpawnObject();
-            yield return new WaitForSeconds(spawnIntervals);
+            yield return new WaitForSeconds(spawnInterval);
         }
         isSpawning = false;
     }

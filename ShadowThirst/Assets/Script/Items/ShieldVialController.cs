@@ -11,11 +11,10 @@ public class ShieldVialController : MonoBehaviour
 
             if (shadowSpirit != null)
             {
-                shadowSpirit.AcquiredShield();
+                shadowSpirit.CollectShield();
             }
 
-            // Destroy vial 
-            Destroy(this.gameObject);
+            Destroy(this.gameObject);    // Collect shield 
         }
     }
 }

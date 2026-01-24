@@ -165,3 +165,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824f9380957bd474e83b724089cf975a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BloodVailController
+  scoreManager: {fileID: 4452793465417361077, guid: 6c282161d4682f14db07fd99fe8f55e2, type: 3}
