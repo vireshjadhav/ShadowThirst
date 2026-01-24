@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
     [Header("BatPoints Settings")]
     [SerializeField] private float bloodBatPoints = 2f;           // Score gained from blood vial
     [SerializeField] private float toxicDamage = 1f;              // Score lost from poison vial
+    [SerializeField] private float enemyDamage = 1f;              // Score penalty from enemy attacks
     [SerializeField] private float durationBonusBatPoint = 1f;    // Time-based score gain
 
     [Header("Score Intervals")]
@@ -20,6 +21,8 @@ public class ScoreManager : MonoBehaviour
     private ShadowSpiritController shadowSpirit;     // Player reference
 
     public float BatPoints => batPoints;             // Read-only score access
+    public float EnemyDamage => enemyDamage;         // Read-only enemy damage
+    public float ToxicDamage => toxicDamage;         // Read-only toxic damage
 
 
     private void Awake()
@@ -87,11 +90,11 @@ public class ScoreManager : MonoBehaviour
         batPoints += bloodBatPoints;
     }
 
-    // Called by poison pickup
-    public void SubtractBatPoints()
+    // Subtract score by variable amount (enemy / poison / future hazards)
+    public void SubtractBatPoints(float damage)
     {
-        batPoints -= toxicDamage;
-        batPoints = Mathf.Max(batPoints, 0f);
+        batPoints -= damage;
+        batPoints = Mathf.Max(batPoints, 0f);    // Prevent negative score
     }
 
     private void OnDestroy()
