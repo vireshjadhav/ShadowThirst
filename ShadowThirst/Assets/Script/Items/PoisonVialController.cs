@@ -14,7 +14,7 @@ public class PoisonVialController : MonoBehaviour
                 shadowSpirit.TakeDamage(shadowSpirit.DamagePoint);       // Damage player
                 if (ScoreManager.Instance != null)
                 {
-                    ScoreManager.Instance.SubtractBatPoints();               // Reduce score
+                    ScoreManager.Instance.SubtractBatPoints(ScoreManager.Instance.ToxicDamage);     // Reduce score by toxic damage
                 }
             }
 

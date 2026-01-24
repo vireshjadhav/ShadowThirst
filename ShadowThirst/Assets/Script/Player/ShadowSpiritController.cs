@@ -45,6 +45,9 @@ public class ShadowSpiritController : MonoBehaviour
     [Header("Animator Reference")]
     [SerializeField] private Animator playerAnimator;    // Controls all player animations (walking, idle, hurt, death)
 
+    [Header("Reference")]
+    [SerializeField] private EnemyController enemyController;     // Enemy linked to this player
+
     private float startTime;                            // Timestamp when gameplay started
     private float healthDecayTimer = 0f;                // Accumulates time to trigger tick-based health decay
     private bool isMoving = false;                      // True when player is currently moving, false when idle
@@ -55,6 +58,7 @@ public class ShadowSpiritController : MonoBehaviour
     private Coroutine currentSpeedBoostCoroutine;       // Reference to the active speed boost timer coroutine
     private Coroutine currentShieldCoroutine;           // Reference to the active shield timer coroutine
     private Coroutine deathCoroutine;                   // Reference to the death/destruction sequence coroutine
+    
     
 
 
@@ -325,6 +329,14 @@ public class ShadowSpiritController : MonoBehaviour
         }
     }
 
+    private void KillEnemy()
+    {
+        // Called when player defeats enemy
+        if (enemyController != null)
+        {
+            enemyController.Die();
+        }
+    }
 
     // Common death handling logic for all death types
     private void DieShadow()
