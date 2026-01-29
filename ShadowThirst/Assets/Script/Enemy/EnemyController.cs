@@ -8,17 +8,32 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Vector3 pointA;                    // First patrol point
     [SerializeField] private Vector3 pointB;                    // Second patrol point
     [SerializeField] private float movementSpeed = 2f;          // Movement speed for patrol and chase
-    [SerializeField] private Animator enemyAnimator;            // Controls enemy animations
-    [SerializeField] private float deathDelay = 2f;             // Delay before destroying enemy after death
+
+    [Header("Combat Settings")]
     [SerializeField] private float attackDamage = 5f;           // Health damage dealt to player per hit
+    [SerializeField] private float attackCooldown = 1.5f;
+    [SerializeField] private float attackWindup = 0.3f;
+
+
+    [Header("Death & Respawn")]
+    [SerializeField] private float deathDelay = 2f;             // Delay before destroying enemy after death
+    [SerializeField] private float respawnDelay = 5f;
+
+    [Header("References")]
+    [SerializeField] private Animator enemyAnimator;            // Controls enemy animations
 
     private Vector3 patrolTarget;           // Current patrol destination
-    private bool attacking = false;         // True when player is inside attack range
+    private Vector3 spawnPoisition;
+
     private bool isDead = false;            // Prevents logic after enemy death
+    private bool playerInRange = false;
+    private bool canAttack = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        spawnPoisition = transform.position;
+
         // Choose the closest patrol point at spawn
         patrolTarget = (Vector3.Distance(transform.position, pointA) < Vector3.Distance(transform.position, pointB)) ? pointA : pointB;
     }
@@ -28,15 +43,20 @@ public class EnemyController : MonoBehaviour
     {
         if (isDead) return;
 
-        // Switch behavior based on player proximity
-        if (!attacking)
+        if (playerInRange)
         {
-            PatrolEnemy();
+            AttackMovement();
+
+            if (canAttack)
+            {
+                StartCoroutine(AttackRoutine());
+            }
         }
         else
         {
-            AttackMovement();
+            PatrolEnemy();
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -46,10 +66,10 @@ public class EnemyController : MonoBehaviour
         // Enter attack mode when player enters range
         if (other.CompareTag("Player"))
         {
-            attacking = true;
-            SetAttackAnimation(true);
+            playerInRange = true;
         }
     }
+
 
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -58,7 +78,7 @@ public class EnemyController : MonoBehaviour
         // Return to patrol when player leaves range
         if (other.CompareTag("Player"))
         {
-            attacking = false;
+            playerInRange = false;
             SetAttackAnimation(false);
         }
     }
@@ -87,20 +107,34 @@ public class EnemyController : MonoBehaviour
     private void AttackMovement()
     {
         // Chase player while attacking
-        if (ShadowSpiritController.Instance != null)
+        if (ShadowSpiritController.Instance == null) return;
+
+        transform.position = Vector3.MoveTowards(transform.position, ShadowSpiritController.Instance.transform.position, movementSpeed * Time.deltaTime);
+
+        // Set facing direction
+        FaceTarget(ShadowSpiritController.Instance.transform.position);
+        
+    }
+
+    private IEnumerator AttackRoutine()
+    {
+        canAttack = false;
+
+        if (!playerInRange || isDead)
         {
-            transform.position = Vector3.MoveTowards(transform.position, ShadowSpiritController.Instance.transform.position, movementSpeed * Time.deltaTime);
-            
-            // Set facing direction
-            FaceTarget(ShadowSpiritController.Instance.transform.position);
-
-
-            if (enemyAnimator != null)
-            {
-                enemyAnimator.SetBool("Attacking", true);
-                enemyAnimator.SetBool("Moving", true);
-            }
+            canAttack = true;
+            yield break;
         }
+
+        SetAttackAnimation(true);
+
+        yield return new WaitForSeconds(attackWindup);
+
+        SetAttackAnimation(false);
+
+        yield return new WaitForSeconds(attackCooldown);
+
+        canAttack = true;
     }
 
     private void SetAttackAnimation(bool isAttacking)
@@ -140,8 +174,10 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void GiveDamage()
+    public void GiveDamage()
     {
+        if (!playerInRange || isDead) return;
+
         // Apply health pressure
         if (ShadowSpiritController.Instance != null)
         {
@@ -157,9 +193,12 @@ public class EnemyController : MonoBehaviour
 
     public void Die()
     {
+        if (isDead) return;
+
         // Lock enemy state
         isDead = true;
-        attacking = false;
+        canAttack = false;
+        playerInRange = false;
 
         if (enemyAnimator != null)
         {
@@ -177,13 +216,39 @@ public class EnemyController : MonoBehaviour
         // Prevent further collisions
         GetComponent<Collider2D>().enabled = false;
 
-        StartCoroutine(DestroyAfterDelay(deathDelay));
+        StartCoroutine(DisableAfterDelay(deathDelay));
     }
 
-    private IEnumerator DestroyAfterDelay(float delay)
+    private IEnumerator DisableAfterDelay(float delay)
     {
         // Allow death animation to finish before cleanup
         yield return new WaitForSeconds(delay);
-        Destroy(gameObject);
+
+        GameController.Instance.RespawnEnemy(this, respawnDelay);
+
+        gameObject.SetActive(false);
+    }
+
+    public void Respawn()
+    {
+        ResetEnemy();
+        gameObject.SetActive(true);
+    }
+
+    private void ResetEnemy()
+    {
+        isDead = false;
+        canAttack = true;
+        playerInRange = false;
+
+        transform.position = spawnPoisition;
+
+        GetComponent<Collider2D>().enabled = true;
+
+        if (enemyAnimator != null)
+        {
+            enemyAnimator.Rebind();
+            enemyAnimator.Update(0f);
+        }
     }
 }

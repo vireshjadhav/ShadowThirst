@@ -30,7 +30,6 @@ public class ScorePanelController : MonoBehaviour
         if (scoreManager == null)
         {
             scoreManager = ScoreManager.Instance;
-            if (scoreManager == null) return;
         }
 
         UpdateScore();

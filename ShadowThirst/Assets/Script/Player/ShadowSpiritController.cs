@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -44,7 +43,8 @@ public class ShadowSpiritController : MonoBehaviour
 
     [Header("Animator Reference")]
     [SerializeField] private Animator playerAnimator;    // Controls all player animations (walking, idle, hurt, death)
-
+    [SerializeField] private AttackRange attackRange;
+ 
     [Header("Reference")]
     [SerializeField] private EnemyController enemyController;     // Enemy linked to this player
 
@@ -75,6 +75,8 @@ public class ShadowSpiritController : MonoBehaviour
     public float PhaseTwoEndTime => phaseTwoEndTime;      // Expose phase two time safely
     public float PhaseThreeEndTime => phaseThreeEndTime;  // Expose phase three time safely
     public float StartTime => startTime;                  // Expose game start time safely
+
+    public bool HaveShield => haveShield;
     #endregion
 
     private void Awake()
@@ -329,8 +331,19 @@ public class ShadowSpiritController : MonoBehaviour
         }
     }
 
+    public void Attack()
+    {
+        if (IsDead) return;
+
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetTrigger("Attacking");
+        }
+    }
+
     private void KillEnemy()
     {
+        EnemyController enemyController = attackRange.GetClosestEnemy();
         // Called when player defeats enemy
         if (enemyController != null)
         {
