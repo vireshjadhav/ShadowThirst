@@ -36,7 +36,7 @@ public class ScorePanelController : MonoBehaviour
     }
 
     private void UpdateScore()
-    {
+    { 
         batPoints = scoreManager.BatPoints;
 
 

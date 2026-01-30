@@ -14,6 +14,12 @@ public class ShieldVialController : MonoBehaviour
                 shadowSpirit.CollectShield();
             }
 
+
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.Play(Sounds.ShieldVialPickUp);
+            }
+
             Destroy(this.gameObject);    // Collect shield 
         }
     }

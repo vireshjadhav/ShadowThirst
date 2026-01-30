@@ -17,7 +17,13 @@ public class BloodVialController : MonoBehaviour
                 {
                     ScoreManager.Instance.AddBatPoints();           // Add score
                 }
-            } 
+            }
+
+
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.Play(Sounds.BloodVialPickUp);
+            }
 
             Destroy(this.gameObject);       // Consume pickup
         }

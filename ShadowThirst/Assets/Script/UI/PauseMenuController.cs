@@ -9,6 +9,7 @@ public class PauseMenuController : MonoBehaviour
     [Header("Panel References")]
     [SerializeField] private GameObject optionMenuPanel;            // Options/settings panel
     [SerializeField] private GameObject gameOverPanel;              // Game over UI
+    [SerializeField] private GameObject resumeIcon;
     [SerializeField] private float gameOverPanelDelay = 2.0f;       // Delay before showing game over
 
     [Header("Button & Slider References")]
@@ -36,6 +37,10 @@ public class PauseMenuController : MonoBehaviour
     private bool isGameOverPanelShown = false;                      // Prevents multiple triggers
     private Coroutine gameOverCoroutine;                            // Tracks delayed game over
 
+    private float lastMusicVolume;
+    private float lastEffectVolume;
+
+    private bool isInitializing = true;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -43,11 +48,17 @@ public class PauseMenuController : MonoBehaviour
     {
         InitializeScoreManager();
         InitializeUIReferences();
+        //Initialize audio UI elements with current values
+        InitializeAudioUI();
+
         AddAllListeners();
+
+        isInitializing = false;
 
         //Ensure panels are closed initially
         if (gameOverPanel != null ) gameOverPanel.SetActive(false);
         if (optionMenuPanel != null ) optionMenuPanel.SetActive(false);
+        if (resumeIcon != null ) resumeIcon.SetActive(false);
     }
 
     // Update is called once per frame
@@ -63,13 +74,13 @@ public class PauseMenuController : MonoBehaviour
     {
         //Only check if not already showing game over panel
         if (isGameOverPanelShown) return;
+        if (gameOverCoroutine != null) return;
         if (ShadowSpiritController.Instance == null) return;
         if (!ShadowSpiritController.Instance.IsDead) return;
 
         // Start coroutine and track it
         gameOverCoroutine = StartCoroutine(OpenGameOverPanelAfterDelay());
         isGameOverPanelShown = true;
-        
     }
 
     // Delays game-over panel appearance for better visual pacing
@@ -112,6 +123,36 @@ public class PauseMenuController : MonoBehaviour
             }
         }
     }
+
+
+    private void InitializeAudioUI()
+    {
+        // Set initial values for audio UI elements if SoundManager exists
+        if (SoundManager.Instance == null) return;
+
+        bool isMuted = SoundManager.Instance.isMute;
+
+        // Cache real volumes
+        lastMusicVolume = SoundManager.Instance.GetMusicVolume();
+        lastEffectVolume = SoundManager.Instance.GetEffectVolume();
+
+        // Set mute toggle 
+        muteToggle.SetIsOnWithoutNotify(isMuted);
+
+        if (isMuted)
+        {
+            // Show sliders as zero when muted
+            musicSlider.SetValueWithoutNotify(0f);
+            effectSlider.SetValueWithoutNotify(0f);
+        }
+        else
+        {
+            // Show actual volumes
+            musicSlider.SetValueWithoutNotify(lastMusicVolume);
+            effectSlider.SetValueWithoutNotify(lastEffectVolume);
+        }
+    }
+
 
     // Syncs score value from ScoreManager and updates UI only on change
     private void UpdateScore()
@@ -184,24 +225,34 @@ public class PauseMenuController : MonoBehaviour
     // Reloads the current gameplay scene safely
     private void RestartLevel()
     {
+        Time.timeScale = 1f;
+
         // Stop any running coroutines
         if (gameOverCoroutine != null)
         {
             StopCoroutine(gameOverCoroutine);
         }
 
+
         ResetGameOverState();
         RemoveAllListeners();
+
         SceneManager.LoadScene(levelIndex);
+        SoundManager.Instance.Play(Sounds.ButtonClick);
     }
 
     // Opens the options/settings menu
     private void OpenOptionPanel()
     {
+        SyncSliders();
+
         if (optionMenuPanel != null)
         {
             optionMenuPanel.SetActive(true);
+            resumeIcon.SetActive(false);
         }
+
+        SoundManager.Instance.Play(Sounds.ButtonClick);
     }
 
     // Returns from options menu back to pause menu
@@ -210,12 +261,17 @@ public class PauseMenuController : MonoBehaviour
         if (optionMenuPanel != null)
         {
             optionMenuPanel.SetActive(false);
+            resumeIcon.SetActive(true);
         }
+
+        SoundManager.Instance.Play(Sounds.ButtonClick);
     }
 
     // Exits the game (editor-safe)
     private void Quit()
     {
+        SoundManager.Instance.Play(Sounds.ButtonClick);
+
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -224,22 +280,46 @@ public class PauseMenuController : MonoBehaviour
     }
 
 
-    // Exits the game (editor-safe)
+    // Adusts sound music volume 
     private void SetMusicVolume(float value)
     {
-        // Implement music volume logic here
+        if(SoundManager.Instance ==  null)  return;
+        SoundManager.Instance.SetMusicVolume(value);
     }
 
-    // Adjusts sound effects volume (hook for AudioManager)
+    // Adjusts sound effects volume 
     private void SetEffectVolume(float value)
     {
-        // Implement SFX volume logic here
+        if (SoundManager.Instance == null) return;
+        SoundManager.Instance.SetEffectVolume(value);
     }
 
     // Toggles global mute state
     private void MuteToggle(bool isOn)
     {
-        // Implement audio mute logic here
+        if (isInitializing) return;
+        if (SoundManager.Instance == null) return;
+
+        SoundManager.Instance.Play(Sounds.ButtonClick);
+
+        if (isOn)
+        {
+            lastEffectVolume = effectSlider.value;
+            lastMusicVolume = musicSlider.value;
+
+            musicSlider.SetValueWithoutNotify(0f);
+            effectSlider.SetValueWithoutNotify(0f);
+        }
+        else
+        {
+            musicSlider.SetValueWithoutNotify(lastMusicVolume);
+            effectSlider.SetValueWithoutNotify(lastEffectVolume);
+
+            SoundManager.Instance.SetMusicVolume(lastMusicVolume);
+            SoundManager.Instance.SetEffectVolume(lastEffectVolume);
+        }
+
+        SoundManager.Instance.Mute(isOn);
     }
 
     // Cleans up listeners and coroutines when object is destroyed
@@ -265,5 +345,22 @@ public class PauseMenuController : MonoBehaviour
             StopCoroutine(gameOverCoroutine);
             gameOverCoroutine = null;
         }
+    }
+
+    private void SyncSliders()
+    {
+        if (SoundManager.Instance == null) return;
+
+        if (SoundManager.Instance.isMute)
+        {
+            musicSlider.SetValueWithoutNotify(0f);
+            effectSlider.SetValueWithoutNotify(0f);
+        }
+        else
+        {
+            musicSlider.SetValueWithoutNotify(SoundManager.Instance.GetMusicVolume());
+            effectSlider.SetValueWithoutNotify(SoundManager.Instance.GetEffectVolume());
+        }
+        
     }
 }

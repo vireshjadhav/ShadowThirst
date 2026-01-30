@@ -281,6 +281,12 @@ public class ShadowSpiritController : MonoBehaviour
             playerAnimator.SetTrigger("Hurt");
         }
 
+
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.Play(Sounds.PlayerHurt);
+        }
+
         UpdateSprite(input);
     }
 
@@ -339,6 +345,12 @@ public class ShadowSpiritController : MonoBehaviour
         {
             playerAnimator.SetTrigger("Attacking");
         }
+
+
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.Play(Sounds.PlayerAttack);
+        }
     }
 
     private void KillEnemy()
@@ -377,6 +389,12 @@ public class ShadowSpiritController : MonoBehaviour
         }
 
         deathCoroutine = StartCoroutine(DestroyAfterDelay(2f));
+
+
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.Play(Sounds.PlayerDeath);
+        }
     }
 
     // Handles death caused by blood depletion.

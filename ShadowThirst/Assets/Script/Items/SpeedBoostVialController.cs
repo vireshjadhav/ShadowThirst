@@ -14,6 +14,12 @@ public class SpeedBoostVialController : MonoBehaviour
                 shadowSpirit.SpeedBoost();
             }
 
+
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.Play(Sounds.SpeedBoostVialPickUp);
+            }
+
             Destroy(this.gameObject); // Collect speed boost vial
         }
     }
