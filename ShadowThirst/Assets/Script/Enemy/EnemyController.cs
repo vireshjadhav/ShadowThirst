@@ -128,6 +128,12 @@ public class EnemyController : MonoBehaviour
 
         SetAttackAnimation(true);
 
+
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.Play(Sounds.EnemyAttack);
+        }
+
         yield return new WaitForSeconds(attackWindup);
 
         SetAttackAnimation(false);
@@ -211,6 +217,12 @@ public class EnemyController : MonoBehaviour
             {
                 FaceTarget(ShadowSpiritController.Instance.transform.position);
             }
+        }
+
+
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.Play(Sounds.EnemyDeath);
         }
 
         // Prevent further collisions

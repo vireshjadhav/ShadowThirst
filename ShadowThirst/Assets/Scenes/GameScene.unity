@@ -1070,7 +1070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &273673548
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1140,7 +1140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b78d0ec30e766d4587a26e6cd097fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResumeButtonController
-  pauseMenuPanel: {fileID: 0}
+  pauseMenuPanel: {fileID: 1980380124}
   pauseButton: {fileID: 1427777363}
 --- !u!1 &290239346
 GameObject:
@@ -40736,7 +40736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dff0d59338dfa74f9869063ff34d862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PuaseButtonController
-  pauseMenuPanel: {fileID: 0}
+  pauseMenuPanel: {fileID: 1980380124}
   resumeButton: {fileID: 273673547}
 --- !u!1 &1499718099
 GameObject:
@@ -42096,6 +42096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenuController
   optionMenuPanel: {fileID: 1952465984}
   gameOverPanel: {fileID: 1554898287}
+  resumeIcon: {fileID: 273673547}
   gameOverPanelDelay: 2
   restartButton: {fileID: 489906640}
   gameOverRestartButton: {fileID: 1112348708}

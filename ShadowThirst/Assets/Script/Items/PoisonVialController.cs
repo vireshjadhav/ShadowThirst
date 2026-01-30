@@ -18,6 +18,11 @@ public class PoisonVialController : MonoBehaviour
                 }
             }
 
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.Play(Sounds.PoisonVialPickUp);
+            }
+
             Destroy(this.gameObject);        // Consume pickup
         }
     }
