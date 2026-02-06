@@ -6,10 +6,14 @@ public class ShieldButtonController : MonoBehaviour, IPointerDownHandler
 {
     [Header("Reference")]
     [SerializeField] private Image shieldIcon;            // Shield button icon
+    [SerializeField] private Image shieldCooldown;
 
     [Header("Alpha Settings")]
     [SerializeField] private float minAlpha = 0.1f;       // Inactive / no shield state
     [SerializeField] private float maxAlpha = 0.6f;       // Shield available state
+
+    private bool isCooldownActive = false;
+    private float cooldownTimer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,6 +22,11 @@ public class ShieldButtonController : MonoBehaviour, IPointerDownHandler
         if (shieldIcon == null) return;
 
         SetAlpha(minAlpha);
+
+        if (shieldCooldown != null)
+            shieldCooldown.fillAmount = 0f;
+
+        cooldownTimer = ShadowSpiritController.Instance.ShieldLife;
     }
 
     void Update()
@@ -26,14 +35,31 @@ public class ShieldButtonController : MonoBehaviour, IPointerDownHandler
         if (ShadowSpiritController.Instance == null) return;
         if (shieldIcon == null) return;
 
-        // Update icon visibility based on shield availability
-        if (ShadowSpiritController.Instance.HaveShield)
+        if (!isCooldownActive)
         {
-            SetAlpha(maxAlpha);
+            // Update icon visibility based on shield availability
+            if (ShadowSpiritController.Instance.HaveShield)
+            {
+                SetAlpha(maxAlpha);
+                shieldCooldown.fillAmount = 1f;
+            }
+            else
+            {
+                SetAlpha(minAlpha);
+            }
         }
-        else
+
+        if (isCooldownActive)
         {
-            SetAlpha(minAlpha);
+            cooldownTimer -= Time.deltaTime;
+
+            float totalTime = ShadowSpiritController.Instance.ShieldLife;
+            shieldCooldown.fillAmount = cooldownTimer / totalTime;
+            if (cooldownTimer <= 0f)
+            {
+                isCooldownActive = false;
+                shieldCooldown.fillAmount = 0f;
+            }
         }
     }
 
@@ -43,9 +69,17 @@ public class ShieldButtonController : MonoBehaviour, IPointerDownHandler
         // Prevent null reference or invalid state
         if (ShadowSpiritController.Instance == null) return;
         if (!ShadowSpiritController.Instance.isActiveAndEnabled) return;
-
+        if (isCooldownActive) return;
+   
         // Activate shield logic handled by player controller
         ShadowSpiritController.Instance.ActivateShield();
+
+        cooldownTimer = ShadowSpiritController.Instance.ShieldLife;
+        shieldCooldown.fillAmount = 1f;
+
+        isCooldownActive = true;
+
+        SetAlpha(minAlpha);
     }
 
     // Utility method to control shield icon transparency

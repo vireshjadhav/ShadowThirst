@@ -28,10 +28,11 @@ Transform:
   m_GameObject: {fileID: 1839230843875662949}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1173733749947791367}
   m_Father: {fileID: 1066559484991679992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4541372351815767078
@@ -81,14 +82,14 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 3727687967189927785, guid: 24c49d4819b489641ad5ada8d15069d5, type: 3}
-  m_Color: {r: 1, g: 1, b: 0.3, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0a1e712d9de60ce4f8cec80dfc72838c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.85, y: 5.1}
+  m_Size: {x: 5, y: 5.62}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -130,28 +131,60 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.85, y: 5.1}
-    newSize: {x: 4.85, y: 5.1}
+    pivot: {x: 0.5, y: 1}
+    oldSize: {x: 6.25, y: 5.9625}
+    newSize: {x: 5, y: 5.62}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.0072120856, y: 2.5475907}
-      - {x: -0.51505524, y: 1.5433425}
-      - {x: -0.81385684, y: 0.94411755}
-      - {x: -2.421297, y: -2.2529747}
-      - {x: -1.9003853, y: -2.3145447}
-      - {x: -1.3093529, y: -2.3680115}
-      - {x: -0.00055907667, y: -2.4113097}
-      - {x: 1.1439933, y: -2.3789167}
-      - {x: 1.6626575, y: -2.336358}
-      - {x: 2.4128351, y: -2.2577786}
-      - {x: 0.614678, y: 1.3387085}
-      - {x: 0.537258, y: 1.486774}
-      - {x: 0.0061886646, y: 2.5476227}
+    - - {x: -0.21736151, y: -0.059206873}
+      - {x: -0.32199955, y: -0.17163706}
+      - {x: -0.36453938, y: -0.33377647}
+      - {x: -0.437568, y: -0.70327395}
+      - {x: -0.52692324, y: -1.2041959}
+      - {x: -0.7506014, y: -2.2210329}
+      - {x: -1.0863535, y: -3.4881396}
+      - {x: -1.3440204, y: -4.6677356}
+      - {x: -1.4050933, y: -4.8398037}
+      - {x: -1.4498209, y: -4.9517426}
+      - {x: -1.5050013, y: -5.048113}
+      - {x: -1.5239546, y: -5.101817}
+      - {x: -1.5764227, y: -5.148877}
+      - {x: -1.5989819, y: -5.2060103}
+      - {x: -1.68172, y: -5.2643037}
+      - {x: -1.7595706, y: -5.338753}
+      - {x: -1.7912545, y: -5.4731536}
+      - {x: -1.7171955, y: -5.544703}
+      - {x: -1.6059113, y: -5.583176}
+      - {x: -1.3955591, y: -5.6047544}
+      - {x: -1.0659516, y: -5.6153708}
+      - {x: -0.74988174, y: -5.6151204}
+      - {x: -0.18549323, y: -5.6177444}
+      - {x: 0.8544742, y: -5.5994954}
+      - {x: 1.3797567, y: -5.564127}
+      - {x: 1.7281407, y: -5.537431}
+      - {x: 1.8693316, y: -5.4646254}
+      - {x: 1.8925865, y: -5.447332}
+      - {x: 1.9110012, y: -5.363574}
+      - {x: 1.9084957, y: -5.2819915}
+      - {x: 1.8662167, y: -5.2116427}
+      - {x: 1.7606995, y: -5.1098213}
+      - {x: 1.660517, y: -4.9427958}
+      - {x: 1.5349207, y: -4.607964}
+      - {x: 1.275926, y: -3.8600817}
+      - {x: 1.1423539, y: -3.3396614}
+      - {x: 0.9258809, y: -2.4659514}
+      - {x: 0.75764716, y: -1.8376995}
+      - {x: 0.6456003, y: -1.3932508}
+      - {x: 0.57902527, y: -1.1405942}
+      - {x: 0.47223365, y: -0.6210424}
+      - {x: 0.3570512, y: -0.19574916}
+      - {x: 0.28685665, y: -0.051190972}
+      - {x: 0.16200161, y: 0.008168936}
+      - {x: -0.12621948, y: 0.009925365}
   m_UseDelaunayMesh: 1
 --- !u!114 &5889487897600763772
 MonoBehaviour:
@@ -165,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 396ec0e4de28b3342848fd85ccff14fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightHazardController
+  hazardLight: {fileID: 4732448334925405305}
 --- !u!1 &2654070296599004859
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,14 +280,14 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -3026583035946332492, guid: a2b3a8b35c782ea408f69e9be49b0c5b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 68bd1a6265758aa469e254e000a2a76e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.4, y: 1.4}
+  m_Size: {x: 4, y: 7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -284,3 +318,87 @@ MonoBehaviour:
   hazardController: {fileID: 5889487897600763772}
   minTimeToToggle: 4
   maxTimeToToggle: 8
+--- !u!1 &6750006988340228076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1173733749947791367}
+  - component: {fileID: 4732448334925405305}
+  m_Layer: 0
+  m_Name: Freeform Light 2D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1173733749947791367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6750006988340228076}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2752869931639785935}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4732448334925405305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6750006988340228076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+  m_ComponentVersion: 2
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 0.990566, g: 0.90189296, b: 0.60275006, a: 1}
+  m_Intensity: 1.2
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 21300000, guid: 0a1e712d9de60ce4f8cec80dfc72838c, type: 3}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: -0.00034999847, y: -2.5994, z: 0}
+    m_Extent: {x: 5.49935, y: 4.8998, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 2
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.35, y: 0.3, z: 0}
+  - {x: -3.5, y: -5.5, z: 0}
+  - {x: 3.5, y: -5.5, z: 0}
+  - {x: 0.35, y: 0.3, z: 0}

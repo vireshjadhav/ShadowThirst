@@ -18,6 +18,8 @@ public class AttackRange : MonoBehaviour
                     enemiesInRange.Add(enemyController);
                 }
 
+                ShadowSpiritController.Instance.GetEnemyInRange(enemyController.transform.position);
+
                 attackButtonController?.ActivateAttackIcon();
             }
         }
@@ -43,8 +45,21 @@ public class AttackRange : MonoBehaviour
 
     public EnemyController GetClosestEnemy()
     {
-        if (enemiesInRange.Count == 0) return null;
+        EnemyController closest = null;
+        float minDist = float.MaxValue;
 
-        return enemiesInRange[0];
+        foreach (var enemy in enemiesInRange)
+        {
+            if (enemy == null) continue;
+            float dist = Vector3.Distance(enemy.transform.position, ShadowSpiritController.Instance.transform.position);
+
+            if (dist < minDist)
+            {
+                minDist = dist;
+                closest = enemy;
+            }
+        }
+
+        return closest;
     }
 }

@@ -9,6 +9,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private float toxicDamage = 1f;              // Score lost from poison vial
     [SerializeField] private float enemyDamage = 1f;              // Score penalty from enemy attacks
     [SerializeField] private float durationBonusBatPoint = 1f;    // Time-based score gain
+    [SerializeField] private float enemyKillPoints = 5f;
 
     [Header("Score Intervals")]
     [SerializeField] private float phaseOneScoreInterval = 5f;
@@ -23,6 +24,8 @@ public class ScoreManager : MonoBehaviour
     public float BatPoints => batPoints;             // Read-only score access
     public float EnemyDamage => enemyDamage;         // Read-only enemy damage
     public float ToxicDamage => toxicDamage;         // Read-only toxic damage
+    public float BloodBatPoints => bloodBatPoints;
+    public float EnemyKillPoints => enemyKillPoints; //Read-only enemy kill points
 
 
     private void Awake()
@@ -59,7 +62,13 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (shadowSpirit == null || shadowSpirit.IsDead) return;     // Stop scoring when player is dead
+        if (shadowSpirit == null)
+        {
+            shadowSpirit = ShadowSpiritController.Instance;
+            return;
+        }
+
+        if (shadowSpirit.IsDead) return;     // Stop scoring when player is dead
 
         BatPointsHandler();
     }
@@ -85,9 +94,9 @@ public class ScoreManager : MonoBehaviour
     }
 
     // Called by blood pickup
-    public void AddBatPoints()
+    public void AddBatPoints(float amount)
     {
-        batPoints += bloodBatPoints;
+        batPoints += amount;
     }
 
     // Subtract score by variable amount (enemy / poison / future hazards)
@@ -95,6 +104,13 @@ public class ScoreManager : MonoBehaviour
     {
         batPoints -= damage;
         batPoints = Mathf.Max(batPoints, 0f);    // Prevent negative score
+    }
+
+    public void ResetScore()
+    {
+        batPoints = 0f;
+        scoreTimer = 0f;
+        shadowSpirit = null;  
     }
 
     private void OnDestroy()

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -26,8 +28,20 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        if (enemy == null) yield break;
+        if (enemy == null || !enemy.gameObject.scene.isLoaded) yield break;
 
         enemy.Respawn();
+    }
+
+    public void RestartGame(int sceneIndex)
+    {
+        Time.timeScale = 1.0f;
+
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.ResetScore();
+        }
+
+        SceneManager.LoadScene(sceneIndex);
     }
 }

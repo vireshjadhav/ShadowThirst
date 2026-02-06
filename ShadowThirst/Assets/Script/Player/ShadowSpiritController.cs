@@ -58,8 +58,8 @@ public class ShadowSpiritController : MonoBehaviour
     private Coroutine currentSpeedBoostCoroutine;       // Reference to the active speed boost timer coroutine
     private Coroutine currentShieldCoroutine;           // Reference to the active shield timer coroutine
     private Coroutine deathCoroutine;                   // Reference to the death/destruction sequence coroutine
-    
-    
+    private Vector3 targetEnemyPosition;
+    private bool isAttacking = false;
 
 
     #region Public State (Read-Only)
@@ -77,6 +77,8 @@ public class ShadowSpiritController : MonoBehaviour
     public float StartTime => startTime;                  // Expose game start time safely
 
     public bool HaveShield => haveShield;
+
+    public float ShieldLife => shieldLife;
     #endregion
 
     private void Awake()
@@ -124,6 +126,8 @@ public class ShadowSpiritController : MonoBehaviour
         //Early exit if references are missing or player is dead
         if (rb2D == null || joystickController == null || IsDead) return;
 
+        if (isAttacking) return;
+
         Vector2 input = joystickController.Direction;
 
         //Only move if there's significant input
@@ -131,6 +135,7 @@ public class ShadowSpiritController : MonoBehaviour
         {
             //Move the character using physics-based movement
             rb2D.MovePosition(rb2D.position + input * movementSpeed * Time.fixedDeltaTime);
+            previousDirection = input;
         }
 
         UpdateSprite(input);
@@ -204,7 +209,7 @@ public class ShadowSpiritController : MonoBehaviour
         // Apply health loss only when the current interval is reached
         if (healthDecayTimer >= currentInterval)
         {
-            healthDecayTimer = 0f;
+            healthDecayTimer -= currentInterval;
 
             float decayAmount = GetDecayAmount(elapsedSinceStart);
             UpdateHealth(-decayAmount);
@@ -337,9 +342,23 @@ public class ShadowSpiritController : MonoBehaviour
         }
     }
 
+
+    public void  GetEnemyInRange(Vector3 enemyPosition)
+    {
+        targetEnemyPosition = enemyPosition;
+    }
+
+
     public void Attack()
     {
         if (IsDead) return;
+
+        isAttacking = true;
+
+        if (enemyController != null)
+        {
+            FaceTarget(targetEnemyPosition);
+        }
 
         if (playerAnimator != null)
         {
@@ -351,6 +370,31 @@ public class ShadowSpiritController : MonoBehaviour
         {
             SoundManager.Instance.Play(Sounds.PlayerAttack);
         }
+
+    }
+
+    public void EndAttack() { isAttacking = false; }
+
+    private void FaceTarget(Vector3 targetPosition)
+    {
+        // Orient animation based on dominant movement axis
+        if (playerAnimator == null) return;
+
+        Vector3 rawDirection = targetPosition - transform.position;
+
+        float absX = Mathf.Abs(rawDirection.x);
+        float absY = Mathf.Abs(rawDirection.y);
+
+        if (absX < absY)
+        {
+            playerAnimator.SetFloat("X", 0f);
+            playerAnimator.SetFloat("Y", Mathf.Sign(rawDirection.y));
+        }
+        else
+        {
+            playerAnimator.SetFloat("X", Mathf.Sign(rawDirection.x));
+            playerAnimator.SetFloat("Y", 0f);
+        }
     }
 
     private void KillEnemy()
@@ -361,6 +405,23 @@ public class ShadowSpiritController : MonoBehaviour
         {
             enemyController.Die();
         }
+    }
+
+    // Handles death caused by blood depletion.
+    private void DieFromBloodThirst()
+    {
+        if (IsDead) return;
+        DieShadow();
+    }
+
+
+    // Handles instant death caused by light exposure.
+    public void DieFromLight()
+    {
+        if (IsDead) return;
+        HealthPoint = 0f;
+
+        DieShadow();
     }
 
     // Common death handling logic for all death types
@@ -378,14 +439,15 @@ public class ShadowSpiritController : MonoBehaviour
 
         Debug.Log($"Game Time from start:  {Time.time - startTime}");
 
-        if (playerAnimator != null)
-        {
-            playerAnimator.SetBool("Dead", IsDead);
-        }
-
         if (deathCoroutine != null)
         {
             StopCoroutine(deathCoroutine);
+            deathCoroutine = null;
+        }
+
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetTrigger("Dead");
         }
 
         deathCoroutine = StartCoroutine(DestroyAfterDelay(2f));
@@ -395,21 +457,6 @@ public class ShadowSpiritController : MonoBehaviour
         {
             SoundManager.Instance.Play(Sounds.PlayerDeath);
         }
-    }
-
-    // Handles death caused by blood depletion.
-    private void DieFromBloodThirst()
-    {
-        DieShadow();
-    }
-
-
-    // Handles instant death caused by light exposure.
-    public void DieFromLight()
-    {
-        HealthPoint = 0f;
-
-        DieShadow();
     }
 
 
@@ -439,6 +486,7 @@ public class ShadowSpiritController : MonoBehaviour
             StopCoroutine(currentShieldCoroutine);
         }
 
+        haveShield = false;
         IsShieldActivated = true;
         currentShieldCoroutine = StartCoroutine(DeactivateShieldAfterDelay(shieldLife));
     }
@@ -451,6 +499,37 @@ public class ShadowSpiritController : MonoBehaviour
         IsShieldActivated = false;
         haveShield = false;
         currentShieldCoroutine = null;
+    }
+
+    public void ResetPlayer()
+    {
+        StopAllCoroutines();
+
+        IsDead = false;
+        IsShieldActivated = false;
+        haveShield = false;
+
+
+        healthDecayTimer = 0f;
+        startTime = Time.time;
+
+        movementSpeed = originalSpeed;
+        isSpeedBoosted = false;
+        isAttacking = false;
+
+        if (rb2D != null)
+        {
+            rb2D.simulated = true;
+            rb2D.linearVelocity = Vector3.zero;
+            rb2D.angularVelocity = 0f;
+        }
+
+        transform.position = Vector3.zero;
+    }
+
+    public void DestroyPlayer()
+    {
+        Destroy(gameObject);
     }
 
     // Cleans up singleton reference when object is destroyed

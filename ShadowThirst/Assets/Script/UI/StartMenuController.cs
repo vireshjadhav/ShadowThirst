@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,6 +19,8 @@ public class StartMenuController : MonoBehaviour
     [SerializeField] private Slider musicSlider;       // Music volume control
     [SerializeField] private Slider effectSlider;      // SFX volume control
 
+    [SerializeField] private float startDelay = 2f;
+
     [Header("Scene Settings")]
     [SerializeField] private int mainLevelIndex = 1;          // Gameplay scene index
 
@@ -25,6 +29,10 @@ public class StartMenuController : MonoBehaviour
 
     private bool isInitializing;
 
+    private void Awake()
+    {
+        if (startPanel  != null) startPanel.SetActive(false);
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,7 +41,7 @@ public class StartMenuController : MonoBehaviour
         InitializeAudioUI();
 
         // Initial panel state
-        if (startPanel != null)  startPanel.SetActive(true);
+        StartCoroutine(ActiveStartPanelAfterDelay(startDelay));
         if (optionPanel  != null) optionPanel.SetActive(false);
 
         // Button bindings
@@ -49,6 +57,13 @@ public class StartMenuController : MonoBehaviour
 
 
         isInitializing = false;
+    }
+
+    private IEnumerator ActiveStartPanelAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (startPanel != null) startPanel.SetActive(true);
     }
 
     // Loads the main gameplay scene

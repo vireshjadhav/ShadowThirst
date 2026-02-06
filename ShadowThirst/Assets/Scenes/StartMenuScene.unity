@@ -3868,6 +3868,7 @@ MonoBehaviour:
   muteToggle: {fileID: 583923565}
   musicSlider: {fileID: 1089208566}
   effectSlider: {fileID: 174945616}
+  startDelay: 5
   mainLevelIndex: 1
 --- !u!1 &2102262619
 GameObject:

@@ -159,8 +159,10 @@ public class LightSystemController : MonoBehaviour
 
     private void InitializeRotation()
     {
+        if (hazardController == null) return;
+
         // Determine which rotation target (A or B) is closest to current rotation
-        float current = transform.rotation.eulerAngles.z;
+        float current = hazardController.transform.rotation.eulerAngles.z;
         float distToA = Mathf.Abs(Mathf.DeltaAngle(current, angleA));
         float distToB = Mathf.Abs(Mathf.DeltaAngle(current, angleB));
 
@@ -172,7 +174,7 @@ public class LightSystemController : MonoBehaviour
 
     private void StartRotation()
     {
-        startRotation = transform.rotation;
+        startRotation = hazardController.transform.rotation;
         endRotation = Quaternion.Euler(0f, 0f, rotationTarget);
 
         // If we're already at the target angle, just wait instead of rotating
@@ -194,7 +196,7 @@ public class LightSystemController : MonoBehaviour
         rotationTimer += Time.deltaTime;
         float t = Mathf.Clamp01(rotationTimer / rotationDuration);
 
-        transform.rotation = Quaternion.Slerp(startRotation, endRotation, t);
+        hazardController.transform.rotation = Quaternion.Slerp(startRotation, endRotation, t);
 
         // If rotation is complete, start waiting before next rotation
         if (t >= 1f && !isWaitingRotation)

@@ -1,15 +1,22 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class LightHazardController : MonoBehaviour
 {
     private Collider2D hazardCollider;
     private SpriteRenderer spriteRenderer;
 
+    [Header("Light")]
+    [SerializeField] private Light2D hazardLight;
+
     private void Awake()
     {
         // Cache required components
         hazardCollider = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if ( hazardLight == null )
+            hazardLight = GetComponentInChildren<Light2D>();
     }
 
     // Enables or disables the light hazard
@@ -21,6 +28,9 @@ public class LightHazardController : MonoBehaviour
 
         if (spriteRenderer != null)
             spriteRenderer.enabled = active;
+
+        if (hazardLight != null)
+            hazardLight.enabled = active;
     }
 
     // Returns whether the hazard is currently active 
@@ -33,7 +43,7 @@ public class LightHazardController : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         // Check if the colliding object has the "Player" tag
         if (other.CompareTag("Player"))
