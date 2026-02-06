@@ -8,8 +8,14 @@ public class CameraFollowController : MonoBehaviour
     [SerializeField] private Vector3 offset = new Vector3(0f, 0f, -10f);
 
     private Vector3 velocity = Vector3.zero;
+
     private void LateUpdate()
     {
+        if (target == null && ShadowSpiritController.Instance != null)
+        {
+            target = ShadowSpiritController.Instance.transform;
+        }
+
         //Early exit if no target to follow
         if (target == null) return;
 

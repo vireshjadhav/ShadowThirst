@@ -72,11 +72,18 @@ public class PauseMenuController : MonoBehaviour
     // Detects player death and triggers game over once
     private void CheckGameOver()
     {
+        if (Time.timeScale == 0f) return;
         //Only check if not already showing game over panel
         if (isGameOverPanelShown) return;
         if (gameOverCoroutine != null) return;
         if (ShadowSpiritController.Instance == null) return;
         if (!ShadowSpiritController.Instance.IsDead) return;
+
+        // cache final score ONCE
+        {
+            batPoints = scoreManager.BatPoints;
+            UpdateScoreDisplay();
+        }
 
         // Start coroutine and track it
         gameOverCoroutine = StartCoroutine(OpenGameOverPanelAfterDelay());
@@ -157,7 +164,7 @@ public class PauseMenuController : MonoBehaviour
     // Syncs score value from ScoreManager and updates UI only on change
     private void UpdateScore()
     {
-        if (scoreManager != null)
+        if (scoreManager == null)
         {
             scoreManager = ScoreManager.Instance;
             if (scoreManager == null) return;
@@ -227,18 +234,33 @@ public class PauseMenuController : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        // Stop any running coroutines
-        if (gameOverCoroutine != null)
-        {
-            StopCoroutine(gameOverCoroutine);
-        }
+        StopAllCoroutines();
 
+        if (optionMenuPanel != null) optionMenuPanel.SetActive(false);
+        if (gameOverPanel != null) gameOverPanel.SetActive(false);
+        if (resumeIcon != null) resumeIcon.SetActive(false);
 
         ResetGameOverState();
-        RemoveAllListeners();
 
-        SceneManager.LoadScene(levelIndex);
-        SoundManager.Instance.Play(Sounds.ButtonClick);
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.Play(Sounds.ButtonClick);
+        }
+
+        if (scoreManager != null)
+        {
+            scoreManager.ResetScore();
+        }
+
+        if (ShadowSpiritController.Instance != null)
+        {
+            ShadowSpiritController.Instance.DestroyPlayer();
+        }
+
+        if (GameController.Instance != null)
+        {
+            GameController.Instance.RestartGame(levelIndex);
+        }
     }
 
     // Opens the options/settings menu
@@ -270,6 +292,7 @@ public class PauseMenuController : MonoBehaviour
     // Exits the game (editor-safe)
     private void Quit()
     {
+        if (SoundManager.Instance == null) return;
         SoundManager.Instance.Play(Sounds.ButtonClick);
 
 #if UNITY_EDITOR

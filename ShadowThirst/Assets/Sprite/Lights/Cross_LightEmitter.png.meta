@@ -1,0 +1,2457 @@
+fileFormatVersion: 2
+guid: 68bd1a6265758aa469e254e000a2a76e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4712149531501964194
+    second: Cross_LightEmitter_0
+  - first:
+      213: -1894504634758560402
+    second: Cross_LightEmitter_1
+  - first:
+      213: 4288262580869291246
+    second: Cross_LightEmitter_2
+  - first:
+      213: -5876639746402998577
+    second: Cross_LightEmitter_3
+  - first:
+      213: 3200680098811760851
+    second: Cross_LightEmitter_4
+  - first:
+      213: 5963205709202559778
+    second: Cross_LightEmitter_5
+  - first:
+      213: -2522586991297975184
+    second: Cross_LightEmitter_6
+  - first:
+      213: -170596957303714080
+    second: Cross_LightEmitter_7
+  - first:
+      213: -2086975893290707252
+    second: Cross_LightEmitter_8
+  - first:
+      213: 2537982456802890668
+    second: Cross_LightEmitter_9
+  - first:
+      213: 2402727572783279742
+    second: Cross_LightEmitter_10
+  - first:
+      213: -3002966772318525007
+    second: Cross_LightEmitter_11
+  - first:
+      213: -1974143936469135824
+    second: Cross_LightEmitter_12
+  - first:
+      213: 6501921978231128590
+    second: Cross_LightEmitter_13
+  - first:
+      213: 6784620247871392440
+    second: Cross_LightEmitter_14
+  - first:
+      213: 8086160959789212994
+    second: Cross_LightEmitter_15
+  - first:
+      213: 8322155241701806757
+    second: Cross_LightEmitter_16
+  - first:
+      213: 2437272318455401064
+    second: Cross_LightEmitter_17
+  - first:
+      213: 7068335640514193268
+    second: Cross_LightEmitter_18
+  - first:
+      213: -2656285307382675087
+    second: Cross_LightEmitter_19
+  - first:
+      213: -2861055460956530006
+    second: Cross_LightEmitter_20
+  - first:
+      213: -2392612741213569369
+    second: Cross_LightEmitter_21
+  - first:
+      213: 1272702045643378882
+    second: Cross_LightEmitter_22
+  - first:
+      213: 7397809812756954454
+    second: Cross_LightEmitter_23
+  - first:
+      213: -3510471404171390145
+    second: Cross_LightEmitter_24
+  - first:
+      213: 3841775884979277158
+    second: Cross_LightEmitter_25
+  - first:
+      213: -8321515691301478875
+    second: Cross_LightEmitter_26
+  - first:
+      213: -4932360010943468513
+    second: Cross_LightEmitter_27
+  - first:
+      213: -8127124284360019687
+    second: Cross_LightEmitter_28
+  - first:
+      213: 2088308427924574643
+    second: Cross_LightEmitter_29
+  - first:
+      213: -7951897126801780615
+    second: Cross_LightEmitter_30
+  - first:
+      213: -8544490629671139069
+    second: Cross_LightEmitter_31
+  - first:
+      213: -5842503425866053806
+    second: Cross_LightEmitter_32
+  - first:
+      213: -7946203487017885999
+    second: Cross_LightEmitter_33
+  - first:
+      213: 5245273358004999874
+    second: Cross_LightEmitter_34
+  - first:
+      213: 7300224701580635473
+    second: Cross_LightEmitter_35
+  - first:
+      213: 8081092223068075157
+    second: Cross_LightEmitter_36
+  - first:
+      213: 6975596107575197570
+    second: Cross_LightEmitter_37
+  - first:
+      213: -8005561388672027997
+    second: Cross_LightEmitter_38
+  - first:
+      213: -7490769438073484450
+    second: Cross_LightEmitter_39
+  - first:
+      213: -3211361574115355053
+    second: Cross_LightEmitter_40
+  - first:
+      213: -8628657303254122123
+    second: Cross_LightEmitter_41
+  - first:
+      213: -52351637709309053
+    second: Cross_LightEmitter_42
+  - first:
+      213: -2305061749869601053
+    second: Cross_LightEmitter_43
+  - first:
+      213: -4146301981450781872
+    second: Cross_LightEmitter_44
+  - first:
+      213: 2685179210091438382
+    second: Cross_LightEmitter_45
+  - first:
+      213: 8925235415627466977
+    second: Cross_LightEmitter_46
+  - first:
+      213: -5662431519519263800
+    second: Cross_LightEmitter_47
+  - first:
+      213: -1194769096947144537
+    second: Cross_LightEmitter_48
+  - first:
+      213: -5271997031814901058
+    second: Cross_LightEmitter_49
+  - first:
+      213: 8886805521324110567
+    second: Cross_LightEmitter_50
+  - first:
+      213: -1763831093760436618
+    second: Cross_LightEmitter_51
+  - first:
+      213: 3489344007231440666
+    second: Cross_LightEmitter_52
+  - first:
+      213: 2681700396175558690
+    second: Cross_LightEmitter_53
+  - first:
+      213: 3807167270215197266
+    second: Cross_LightEmitter_54
+  - first:
+      213: 5350405326727483402
+    second: Cross_LightEmitter_55
+  - first:
+      213: 1265343992984649952
+    second: Cross_LightEmitter_56
+  - first:
+      213: 3977967399554084683
+    second: Cross_LightEmitter_57
+  - first:
+      213: 408979704254810538
+    second: Cross_LightEmitter_58
+  - first:
+      213: -536033581016449291
+    second: Cross_LightEmitter_59
+  - first:
+      213: -2736592915767710503
+    second: Cross_LightEmitter_60
+  - first:
+      213: 1198263778088849111
+    second: Cross_LightEmitter_61
+  - first:
+      213: -5566849828672607645
+    second: Cross_LightEmitter_62
+  - first:
+      213: 2948938456247157450
+    second: Cross_LightEmitter_63
+  - first:
+      213: 8867878386087267689
+    second: Cross_LightEmitter_64
+  - first:
+      213: 175773706541428820
+    second: Cross_LightEmitter_65
+  - first:
+      213: 7851392445431090531
+    second: Cross_LightEmitter_66
+  - first:
+      213: -2020301729328885015
+    second: Cross_LightEmitter_67
+  - first:
+      213: -4848287487785329991
+    second: Cross_LightEmitter_68
+  - first:
+      213: 3729478723417470762
+    second: Cross_LightEmitter_69
+  - first:
+      213: 7872091173229521871
+    second: Cross_LightEmitter_70
+  - first:
+      213: 3753423828746201650
+    second: Cross_LightEmitter_71
+  - first:
+      213: 2293866286241408193
+    second: Cross_LightEmitter_72
+  - first:
+      213: -2863090145248354103
+    second: Cross_LightEmitter_73
+  - first:
+      213: 1320325710306057523
+    second: Cross_LightEmitter_74
+  - first:
+      213: -2584692089432301333
+    second: Cross_LightEmitter_75
+  - first:
+      213: 8590825441974620113
+    second: Cross_LightEmitter_76
+  - first:
+      213: 5425813885607698857
+    second: Cross_LightEmitter_77
+  - first:
+      213: 5002163971673735254
+    second: Cross_LightEmitter_78
+  - first:
+      213: 1913509349275333407
+    second: Cross_LightEmitter_79
+  - first:
+      213: 8711697027463730270
+    second: Cross_LightEmitter_80
+  - first:
+      213: -247524338787237132
+    second: Cross_LightEmitter_81
+  - first:
+      213: -3783234610855804941
+    second: Cross_LightEmitter_82
+  - first:
+      213: -1637279656621996020
+    second: Cross_LightEmitter_83
+  - first:
+      213: -4332855907550320482
+    second: Cross_LightEmitter_84
+  - first:
+      213: 7436229179447128900
+    second: Cross_LightEmitter_85
+  - first:
+      213: 5528035981180407191
+    second: Cross_LightEmitter_86
+  - first:
+      213: -6455049210123914076
+    second: Cross_LightEmitter_87
+  - first:
+      213: -8140920019206549215
+    second: Cross_LightEmitter_88
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 500
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cross_LightEmitter_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 243
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aba2b9680be46140800000000000000
+      internalID: 4712149531501964194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 636
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6582eb721e55b5e0800000000000000
+      internalID: -1894504634758560402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 991
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eec505cd818f28b30800000000000000
+      internalID: 4288262580869291246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_3
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 734
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc625b2594bf17ea0800000000000000
+      internalID: -5876639746402998577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_4
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 707
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d0565987991b6c20800000000000000
+      internalID: 3200680098811760851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_5
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 648
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22399938fff81c250800000000000000
+      internalID: 5963205709202559778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_6
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 323
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07ca9a42f78fdfcd0800000000000000
+      internalID: -2522586991297975184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_7
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 231
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ee4620a8fae1adf0800000000000000
+      internalID: -170596957303714080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_8
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 140
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc69a997b729903e0800000000000000
+      internalID: -2086975893290707252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_9
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 91
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca3d8eff899b83320800000000000000
+      internalID: 2537982456802890668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_10
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 982
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7ea8cb4ff3385120800000000000000
+      internalID: 2402727572783279742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_11
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 846
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b927a781a15356d0800000000000000
+      internalID: -3002966772318525007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_12
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 803
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03e044b9c8e6a94e0800000000000000
+      internalID: -1974143936469135824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_13
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 622
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0285cd27977b3a50800000000000000
+      internalID: 6501921978231128590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_14
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 395
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ba0c424b20d72e50800000000000000
+      internalID: 6784620247871392440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_15
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 390
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2452ed4fc80d73070800000000000000
+      internalID: 8086160959789212994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_16
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 350
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a29a43891c3e7370800000000000000
+      internalID: 8322155241701806757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_17
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 336
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a4d6aa24ee2d120800000000000000
+      internalID: 2437272318455401064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_18
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 286
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 477e41eb0d5c71260800000000000000
+      internalID: 7068335640514193268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_19
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 246
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 179cd57269af22bd0800000000000000
+      internalID: -2656285307382675087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_20
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 84
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaa9efe773d7b48d0800000000000000
+      internalID: -2861055460956530006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_21
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 30
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ae34e2736bbbced0800000000000000
+      internalID: -2392612741213569369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_22
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 8
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c09c7774cb89a110800000000000000
+      internalID: 1272702045643378882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_23
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65df64554dc4aa660800000000000000
+      internalID: 7397809812756954454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_24
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 814
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3392307bdc484fc0800000000000000
+      internalID: -3510471404171390145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_25
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 542
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66d0ad210dab05530800000000000000
+      internalID: 3841775884979277158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_26
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 486
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52ed22b6199048c80800000000000000
+      internalID: -8321515691301478875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_27
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 462
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1c6f5be3bcbc8bb0800000000000000
+      internalID: -4932360010943468513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_28
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 448
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9113541d587a63f80800000000000000
+      internalID: -8127124284360019687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_29
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 430
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b116eb63792bfc10800000000000000
+      internalID: 2088308427924574643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_30
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 116
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 970d782b1bf25a190800000000000000
+      internalID: -7951897126801780615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_31
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 1
+        width: 549
+        height: 1023
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3094ccffa0fdb6980800000000000000
+      internalID: -8544490629671139069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_32
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 200
+        width: 420
+        height: 676
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 257404ec6124beea0800000000000000
+      internalID: -5842503425866053806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_33
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 707
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1de1453870a69b190800000000000000
+      internalID: -7946203487017885999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_34
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 623
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c655b51454fac840800000000000000
+      internalID: 5245273358004999874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_35
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 663
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15dee3610bb9f4560800000000000000
+      internalID: 7300224701580635473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_36
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 699
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 594f429bf8ec52070800000000000000
+      internalID: 8081092223068075157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_37
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 668
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28ffd9893bb4ec060800000000000000
+      internalID: 6975596107575197570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_38
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 722
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a2fe90155886e090800000000000000
+      internalID: -8005561388672027997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_39
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 871
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b074542e07b0890800000000000000
+      internalID: -7490769438073484450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_40
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 865
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 356d381b9a3fe63d0800000000000000
+      internalID: -3211361574115355053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_41
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 873
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57145f636e9d04880800000000000000
+      internalID: -8628657303254122123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_42
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 900
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38b3dee7672064ff0800000000000000
+      internalID: -52351637709309053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_43
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 0
+        width: 728
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ee9ead1d86c200e0800000000000000
+      internalID: -2305061749869601053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_44
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 871
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05bb020e0506576c0800000000000000
+      internalID: -4146301981450781872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_45
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 886
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e21a3cfc34ca34520800000000000000
+      internalID: 2685179210091438382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_46
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 879
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e80635925eccdb70800000000000000
+      internalID: 8925235415627466977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_47
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 857
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c3341aa8800b61b0800000000000000
+      internalID: -5662431519519263800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_48
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 870
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a8e9d326d35b6fe0800000000000000
+      internalID: -1194769096947144537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_49
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 891
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb252cdb1aa16d6b0800000000000000
+      internalID: -5271997031814901058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_50
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 875
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e2f08e8986445b70800000000000000
+      internalID: 8886805521324110567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_51
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 703
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 676de9427fc9587e0800000000000000
+      internalID: -1763831093760436618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_52
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 691
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a170b2223e3ac6030800000000000000
+      internalID: 3489344007231440666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_53
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 707
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22881145d40573520800000000000000
+      internalID: 2681700396175558690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_54
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 656
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 252aba50676c5d430800000000000000
+      internalID: 3807167270215197266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_55
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 768
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0013f70c45704a40800000000000000
+      internalID: 5350405326727483402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_56
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 712
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e0468458a76f8110800000000000000
+      internalID: 1265343992984649952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_57
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 699
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4f61821644943730800000000000000
+      internalID: 3977967399554084683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_58
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 671
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa9c378cfdcfca500800000000000000
+      internalID: 408979704254810538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_59
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 632
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fe75df4c40af88f0800000000000000
+      internalID: -536033581016449291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_60
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 616
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dca0d00e3ba50ad0800000000000000
+      internalID: -2736592915767710503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_61
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 496
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7de0438be8611a010800000000000000
+      internalID: 1198263778088849111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_62
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 448
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36a660443939eb2b0800000000000000
+      internalID: -5566849828672607645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_63
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 440
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac2c91dd6ebbce820800000000000000
+      internalID: 2948938456247157450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_64
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 400
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96d881a7868011b70800000000000000
+      internalID: 8867878386087267689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_65
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 272
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 450714b3149707200800000000000000
+      internalID: 175773706541428820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_66
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 200
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36d0b16a4dfb5fc60800000000000000
+      internalID: 7851392445431090531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_67
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 152
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e29e3cf74276f3e0800000000000000
+      internalID: -2020301729328885015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_68
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 104
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ba9599973c67bcb0800000000000000
+      internalID: -4848287487785329991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_69
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 91
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a27fcaaa325c1c330800000000000000
+      internalID: 3729478723417470762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_70
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 23
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcb65d3c6394f3d60800000000000000
+      internalID: 7872091173229521871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_71
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 952
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23a67e3f517d61430800000000000000
+      internalID: 3753423828746201650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_72
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 681
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c4e9a1eb3375df10800000000000000
+      internalID: 2293866286241408193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_73
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 664
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c0ec84aea24448d0800000000000000
+      internalID: -2863090145248354103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_74
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 651
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33d9b96fc3db25210800000000000000
+      internalID: 1320325710306057523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_75
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 642
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be020ab2d34512cd0800000000000000
+      internalID: -2584692089432301333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_76
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 547
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1df094c293eb83770800000000000000
+      internalID: 8590825441974620113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_77
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 320
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a167055bfc5c4b40800000000000000
+      internalID: 5425813885607698857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_78
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 234
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 650cedf21a14b6540800000000000000
+      internalID: 5002163971673735254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_79
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 186
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f13f1fd6d962e8a10800000000000000
+      internalID: 1913509349275333407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_80
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 168
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e545dc83a4a26e870800000000000000
+      internalID: 8711697027463730270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_81
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 147
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f2c251eced909cf0800000000000000
+      internalID: -247524338787237132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_82
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 535
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fff9f57a204f7bc0800000000000000
+      internalID: -3783234610855804941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_83
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 528
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c088215b3d63749e0800000000000000
+      internalID: -1637279656621996020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_84
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 447
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e98a28f228a9ed3c0800000000000000
+      internalID: -4332855907550320482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_85
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 440
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44337553a0bc23760800000000000000
+      internalID: 7436229179447128900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_86
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 304
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79d06d3af6787bc40800000000000000
+      internalID: 5528035981180407191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_87
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 95
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a4f5e691fe0b66a0800000000000000
+      internalID: -6455049210123914076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross_LightEmitter_88
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 39
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 121d35eff54a50f80800000000000000
+      internalID: -8140920019206549215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Cross_LightEmitter_0: 4712149531501964194
+      Cross_LightEmitter_1: -1894504634758560402
+      Cross_LightEmitter_10: 2402727572783279742
+      Cross_LightEmitter_11: -3002966772318525007
+      Cross_LightEmitter_12: -1974143936469135824
+      Cross_LightEmitter_13: 6501921978231128590
+      Cross_LightEmitter_14: 6784620247871392440
+      Cross_LightEmitter_15: 8086160959789212994
+      Cross_LightEmitter_16: 8322155241701806757
+      Cross_LightEmitter_17: 2437272318455401064
+      Cross_LightEmitter_18: 7068335640514193268
+      Cross_LightEmitter_19: -2656285307382675087
+      Cross_LightEmitter_2: 4288262580869291246
+      Cross_LightEmitter_20: -2861055460956530006
+      Cross_LightEmitter_21: -2392612741213569369
+      Cross_LightEmitter_22: 1272702045643378882
+      Cross_LightEmitter_23: 7397809812756954454
+      Cross_LightEmitter_24: -3510471404171390145
+      Cross_LightEmitter_25: 3841775884979277158
+      Cross_LightEmitter_26: -8321515691301478875
+      Cross_LightEmitter_27: -4932360010943468513
+      Cross_LightEmitter_28: -8127124284360019687
+      Cross_LightEmitter_29: 2088308427924574643
+      Cross_LightEmitter_3: -5876639746402998577
+      Cross_LightEmitter_30: -7951897126801780615
+      Cross_LightEmitter_31: -8544490629671139069
+      Cross_LightEmitter_32: -5842503425866053806
+      Cross_LightEmitter_33: -7946203487017885999
+      Cross_LightEmitter_34: 5245273358004999874
+      Cross_LightEmitter_35: 7300224701580635473
+      Cross_LightEmitter_36: 8081092223068075157
+      Cross_LightEmitter_37: 6975596107575197570
+      Cross_LightEmitter_38: -8005561388672027997
+      Cross_LightEmitter_39: -7490769438073484450
+      Cross_LightEmitter_4: 3200680098811760851
+      Cross_LightEmitter_40: -3211361574115355053
+      Cross_LightEmitter_41: -8628657303254122123
+      Cross_LightEmitter_42: -52351637709309053
+      Cross_LightEmitter_43: -2305061749869601053
+      Cross_LightEmitter_44: -4146301981450781872
+      Cross_LightEmitter_45: 2685179210091438382
+      Cross_LightEmitter_46: 8925235415627466977
+      Cross_LightEmitter_47: -5662431519519263800
+      Cross_LightEmitter_48: -1194769096947144537
+      Cross_LightEmitter_49: -5271997031814901058
+      Cross_LightEmitter_5: 5963205709202559778
+      Cross_LightEmitter_50: 8886805521324110567
+      Cross_LightEmitter_51: -1763831093760436618
+      Cross_LightEmitter_52: 3489344007231440666
+      Cross_LightEmitter_53: 2681700396175558690
+      Cross_LightEmitter_54: 3807167270215197266
+      Cross_LightEmitter_55: 5350405326727483402
+      Cross_LightEmitter_56: 1265343992984649952
+      Cross_LightEmitter_57: 3977967399554084683
+      Cross_LightEmitter_58: 408979704254810538
+      Cross_LightEmitter_59: -536033581016449291
+      Cross_LightEmitter_6: -2522586991297975184
+      Cross_LightEmitter_60: -2736592915767710503
+      Cross_LightEmitter_61: 1198263778088849111
+      Cross_LightEmitter_62: -5566849828672607645
+      Cross_LightEmitter_63: 2948938456247157450
+      Cross_LightEmitter_64: 8867878386087267689
+      Cross_LightEmitter_65: 175773706541428820
+      Cross_LightEmitter_66: 7851392445431090531
+      Cross_LightEmitter_67: -2020301729328885015
+      Cross_LightEmitter_68: -4848287487785329991
+      Cross_LightEmitter_69: 3729478723417470762
+      Cross_LightEmitter_7: -170596957303714080
+      Cross_LightEmitter_70: 7872091173229521871
+      Cross_LightEmitter_71: 3753423828746201650
+      Cross_LightEmitter_72: 2293866286241408193
+      Cross_LightEmitter_73: -2863090145248354103
+      Cross_LightEmitter_74: 1320325710306057523
+      Cross_LightEmitter_75: -2584692089432301333
+      Cross_LightEmitter_76: 8590825441974620113
+      Cross_LightEmitter_77: 5425813885607698857
+      Cross_LightEmitter_78: 5002163971673735254
+      Cross_LightEmitter_79: 1913509349275333407
+      Cross_LightEmitter_8: -2086975893290707252
+      Cross_LightEmitter_80: 8711697027463730270
+      Cross_LightEmitter_81: -247524338787237132
+      Cross_LightEmitter_82: -3783234610855804941
+      Cross_LightEmitter_83: -1637279656621996020
+      Cross_LightEmitter_84: -4332855907550320482
+      Cross_LightEmitter_85: 7436229179447128900
+      Cross_LightEmitter_86: 5528035981180407191
+      Cross_LightEmitter_87: -6455049210123914076
+      Cross_LightEmitter_88: -8140920019206549215
+      Cross_LightEmitter_9: 2537982456802890668
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -15,7 +15,7 @@ public class BloodVialController : MonoBehaviour
 
                 if (ScoreManager.Instance != null)
                 {
-                    ScoreManager.Instance.AddBatPoints();           // Add score
+                    ScoreManager.Instance.AddBatPoints(ScoreManager.Instance.BloodBatPoints);           // Add score
                 }
             }
 

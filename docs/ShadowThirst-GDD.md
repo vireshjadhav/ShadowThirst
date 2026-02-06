@@ -1,141 +1,215 @@
-GAME DESIGN DOCUMENT (GDD)
+# GAME DESIGN DOCUMENT (GDD)
 
-1. Game Overview
+## 1. Game Overview
 
-Game Title: Shadow Thirst
-Platform: Android
-Engine: Unity 2D
-Genre: Stealth / Survival (Endless, Score-Based)
-Theme Used: Avoid The Light
+**Game Title:** Shadow Thirst  
+**Platform:** Android  
+**Engine:** Unity 2D (URP)  
+**Genre:** Stealth / Survival (Endless, Score-Based)  
+**Theme:** Avoid the Light  
 
-One-Line Description:
-A top-down 2D stealth survival game where a vampire must stay in shadows, avoid light exposure, collect blood to survive, and score as high as possible.
+**One-Line Description:**  
+A top-down 2D stealth survival game where a vampire must survive in darkness, avoid deadly light hazards, manage blood thirst, and deal with patrolling enemies while scoring as high as possible.
 
-2. Core Idea
+---
 
-The player controls a vampire who cannot survive in light and thrives only in darkness. The player must carefully move through shadowed areas, avoid being exposed to moving light, strategically use a time-limited Shadow Shield to survive unavoidable stationary lights, collect blood to stay alive, and survive for as long as possible to achieve a high score.
+## 2. Core Idea
 
-Light is an absolute threat and defines all gameplay decisions.
+The player controls a vampire who cannot survive exposure to light.  
+The environment is filled with light hazards and patrolling enemies that apply constant pressure.
 
-Optional (If Time Permits):
-The environment may include limited movable objects that can be pushed to reposition predefined shadow zones, allowing the player to temporarily block or shorten long light paths. This mechanic is optional and not required for survival.
+Survival depends on:
+- Reading light patterns  
+- Avoiding or surviving enemy encounters  
+- Managing a draining blood meter  
+- Using temporary abilities wisely  
 
-3. Core Gameplay Loop (Endless)
+Light remains the **primary threat**, while enemies act as **secondary pressure units**.
 
-Start Game
-→ Observe light patterns
-→ Move through shadowed areas
-→ Avoid or survive light exposure
-→ Collect blood
-→ Blood meter refills
-→ Score increases with survival time
-→ Difficulty increases over time
-→ Survive as long as possible
+---
 
-→ Touch light without active shield OR Blood meter reaches zero
-→ Game Over
-→ Show final score
-→ Restart
+## 3. Core Gameplay Loop (Endless)
 
-Note: There is no win condition.
+Start Game  
+→ Observe light hazards and enemy patrols  
+→ Move through shadowed areas  
+→ Avoid light or activate Shadow Shield  
+→ Avoid enemies or take damage  
+→ Collect vials  
+→ Blood meter refills / effects applied  
+→ Score increases over time  
+→ Difficulty pressure increases  
 
-4. Player Mechanics
+→ Touch light without active shield  
+OR Blood meter reaches zero  
+→ Game Over  
+→ Show final score  
+→ Restart  
 
-- Top-down 2D movement
-- Free movement inside shadow areas
-- Instant death when touching light without an active Shadow Shield
-- Blood meter slowly drains over time
-- Blood pickups refill blood meter
-- Score increases based on time survived
-- Player can activate a time-limited Shadow Shield
-- Optional: Player can push limited environmental objects
-- No combat, no attacks, no enemies
+---
 
-5. Light Hazards
+## 4. Player Mechanics
 
-Moving Lights:
-- Rotating spotlight-style lights (360° or limited arc)
-- Patrolling cylindrical lights moving linearly
-- Constant, predictable speed
-- Always active
+- Top-down 2D movement via on-screen joystick  
+- Free movement in all directions  
+- Player dies instantly when touching light without an active Shadow Shield  
+- Blood meter drains continuously over time  
+- Player can take damage from enemy attacks  
+- Player stops movement while attacking  
+- Player always faces the enemy during attack animations  
+- Score increases with survival time and interactions  
 
-Stationary Lights:
-- Always-ON lights (require Shadow Shield)
-- ON/OFF lights with predictable cycles
+---
 
-Global Rule:
-Contact with any light causes instant death unless Shadow Shield is active.
+## 5. Enemy System
 
-6. Power-Ups
+### Enemy Type: Patrolling Shadow Hunter
 
-Shadow Shield:
-- Only one shield can be held at a time
-- Manually activated
-- Grants 3 seconds of light immunity
-- No stacking or extension
+**Behavior:**
+- Patrols between two predefined points  
+- Switches direction upon reaching patrol endpoints  
+- Detects player within a trigger range  
+- Stops patrolling when player in range  
+- Attacks player at fixed intervals  
+- Start patrolling once player move out of range  
 
-Blood Surge:
-- Instantly refills blood meter
+**Combat Rules:**
+- Enemy attacks reduce player blood/health  
+- Enemy attacks can trigger player hurt animation  
+- Enemy does NOT instantly kill the player  
+- Enemy can be killed by player attack when in range  
+- Enemy attacks reduce player points
 
-7. Blood System
+Enemies act as **pressure threats**, forcing risky movement choices and interaction with light hazards.
 
-- Static blood pickups
-- Predefined spawn points
-- Randomized at level start
-- No dynamic respawn
+---
 
-8. Scoring System
+## 6. Light Hazards
 
-- Score increases with survival time
-- Small bonus for collecting blood
-- Final score shown on Game Over
+### Moving Lights
+- Rotating spotlight-style lights  
+- Linear moving beams  
+- Predictable movement patterns  
 
-9. Lose Conditions
+### Stationary Lights
+- Always-on lights blocking key paths  
+- Require Shadow Shield to pass safely  
 
-- Touching light without active Shadow Shield
-- Blood meter reaches zero
+### Lighting Rules
+- Light contact = instant death unless shield is active  
+- Freeform Light2D used for accurate beam shapes  
+- Reduced Global Light2D intensity for readability  
 
-10. Controls (Android)
+---
 
-- Touch & Drag: Move
-- On-screen Button: Activate Shadow Shield
-- Optional: Push objects
-- On-screen Button: Pause
-- UI Buttons: Restart / Quit
+## 7. Pickups & Vials
 
-11. Level & Camera
+### Shadow Shield Vial
+- Only one shield can be held at a time  
+- Manually activated via UI button  
+- Grants temporary immunity to light  
+- Shield button deactivates immediately after use  
+- Shield duration shown via UI indicator  
 
-- Single fixed level
-- Fixed camera
-- Endless gameplay via increasing difficulty
-- Optional push mechanics (if time permits)
+### Blood Vial
+- Restores player blood  
+- Prevents death from blood depletion  
+- Grants small score bonus  
+- Static placement in level  
 
-12. Visual Style
+### Poison Vial
+- Instantly damages the player  
+- Reduces blood  
+- Applies score penalty  
+- High-risk pickup  
 
-- Top-down 2D
-- High contrast
-- Shadows: Black
-- Lights: Yellow
-- Blood: Red
-- Vampire: Dark silhouette
-- No real-time lighting
+### Speed Boost Vial
+- Temporarily increases player movement speed  
+- Helps escape enemies or cross dangerous areas  
+- Limited duration  
+- No stacking  
 
-13. Scope & Constraints
+---
 
-- No combat
-- No enemies or AI
-- No real-time lighting
-- No inventory
-- No cutscenes
-- No procedural generation
-- No moving camera
-- No online features
+## 8. Blood System
 
-14. Technical Notes
+- Blood meter drains over time  
+- Enemy attacks reduce blood  
+- Blood vials restore blood  
+- Poison vials reduce blood  
+- Blood depletion results in death  
+- Nearest blood vial direction indicator available  
+- Indicator includes padding to avoid overlap  
 
-- Engine: Unity 2D
-- Physics: Rigidbody2D
-- Lights: Sprite + Collider2D (Trigger)
-- UI: Unity Canvas
-- Audio: Minimal background music and SFX
+---
 
+## 9. Scoring System
+
+- Score increases based on survival time  
+- Bonus score for collecting blood vials  
+- Bonus score for killing enemies  
+- Score penalty for poison damage  
+- Final score shown on Game Over screen  
+
+---
+
+## 10. Lose Conditions
+
+- Touching light without active Shadow Shield  
+- Blood meter reaches zero  
+
+---
+
+## 11. Controls (Android)
+
+- Touch & Drag Joystick: Move  
+- Attack Button: Attack enemy in range  
+- Shield Button: Activate Shadow Shield  
+- Pause Button: Pause game  
+- UI Buttons: Restart / Quit  
+
+---
+
+## 12. Level & Camera
+
+- Single fixed level  
+- Fixed camera  
+- Endless gameplay through increasing pressure  
+- Static layout with dynamic threats  
+
+---
+
+## 13. Visual Style
+
+- Top-down 2D  
+- High contrast visuals  
+- Shadows: Black  
+- Lights: Yellow / warm tones  
+- Blood: Red  
+- Poison: Green  
+- Speed Boost: Blue  
+- Enemies: Dark silhouettes with readable animations  
+
+---
+
+## 14. Scope & Constraints
+
+- No procedural generation  
+- No moving camera  
+- No inventory system  
+- No cutscenes  
+- No online features  
+
+---
+
+## 15. Technical Notes
+
+- Engine: Unity 2D (URP)  
+- Physics: Rigidbody2D  
+- Lighting: Light2D + Sprite beams  
+- Hazards: Trigger-based colliders  
+- Enemy AI: Patrol + range-based attack  
+- UI: Unity Canvas  
+- Audio: Minimal background music and essential SFX  
+
+---

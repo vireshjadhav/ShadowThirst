@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -8,12 +9,12 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Vector3 pointA;                    // First patrol point
     [SerializeField] private Vector3 pointB;                    // Second patrol point
     [SerializeField] private float movementSpeed = 2f;          // Movement speed for patrol and chase
+    [SerializeField] private float waitAfterAttack = 0.5f;
 
     [Header("Combat Settings")]
     [SerializeField] private float attackDamage = 5f;           // Health damage dealt to player per hit
     [SerializeField] private float attackCooldown = 1.5f;
     [SerializeField] private float attackWindup = 0.3f;
-
 
     [Header("Death & Respawn")]
     [SerializeField] private float deathDelay = 2f;             // Delay before destroying enemy after death
@@ -28,6 +29,7 @@ public class EnemyController : MonoBehaviour
     private bool isDead = false;            // Prevents logic after enemy death
     private bool playerInRange = false;
     private bool canAttack = true;
+    private bool isWaiting = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,14 +45,9 @@ public class EnemyController : MonoBehaviour
     {
         if (isDead) return;
 
-        if (playerInRange)
+        if (playerInRange )
         {
-            AttackMovement();
-
-            if (canAttack)
-            {
-                StartCoroutine(AttackRoutine());
-            }
+            WaitAndAttack();
         }
         else
         {
@@ -59,72 +56,44 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (isDead) return;
-
-        // Enter attack mode when player enters range
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = true;
-        }
-    }
-
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (isDead) return;
-
-        // Return to patrol when player leaves range
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
-            SetAttackAnimation(false);
-        }
-    }
-
     private void PatrolEnemy()
     {
-        // Move between patrol points
+        if (isWaiting) return;
+        
         transform.position = Vector3.MoveTowards(transform.position, patrolTarget, movementSpeed * Time.deltaTime);
 
         // Swap patrol target when destination reached
-        if (Vector3.Distance(transform.position, patrolTarget) < 0.01f)
+        if (Vector3.Distance(transform.position, patrolTarget) <0.05f)
         {
             patrolTarget = patrolTarget == pointB ? pointA : pointB;
         }
 
+        FaceTarget(patrolTarget);
+
         // Set animation
         if (enemyAnimator != null)
         {
-            FaceTarget(patrolTarget);
             enemyAnimator.SetBool("Moving", true);
             enemyAnimator.SetBool("Attacking", false);
         }
-        
+
     }
 
-    private void AttackMovement()
+
+    private void WaitAndAttack()
     {
-        // Chase player while attacking
-        if (ShadowSpiritController.Instance == null) return;
+        enemyAnimator.SetBool("Moving", false);
 
-        transform.position = Vector3.MoveTowards(transform.position, ShadowSpiritController.Instance.transform.position, movementSpeed * Time.deltaTime);
-
-        // Set facing direction
-        FaceTarget(ShadowSpiritController.Instance.transform.position);
+        if (canAttack && !isWaiting) return;
+        
+        isWaiting = true;
+        StartCoroutine(AttackRoutine());
         
     }
 
     private IEnumerator AttackRoutine()
     {
         canAttack = false;
-
-        if (!playerInRange || isDead)
-        {
-            canAttack = true;
-            yield break;
-        }
 
         SetAttackAnimation(true);
 
@@ -136,11 +105,32 @@ public class EnemyController : MonoBehaviour
 
         yield return new WaitForSeconds(attackWindup);
 
+        GiveDamage();
+
         SetAttackAnimation(false);
 
+        yield return new WaitForSeconds(waitAfterAttack);
         yield return new WaitForSeconds(attackCooldown);
 
+        isWaiting = false;
         canAttack = true;
+    }
+
+    public void GiveDamage()
+    {
+        if (!playerInRange || isDead) return;
+
+        // Apply health pressure
+        if (ShadowSpiritController.Instance != null)
+        {
+            ShadowSpiritController.Instance.TakeDamage(attackDamage);
+        }
+
+        // Apply score pressure
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.SubtractBatPoints(ScoreManager.Instance.EnemyDamage);
+        }
     }
 
     private void SetAttackAnimation(bool isAttacking)
@@ -148,13 +138,11 @@ public class EnemyController : MonoBehaviour
         // Centralized animation state control
         if (enemyAnimator != null)
         {
+            if (ShadowSpiritController.Instance == null) return;
+            FaceTarget(ShadowSpiritController.Instance.transform.position);
+
             enemyAnimator.SetBool("Attacking", isAttacking);
             enemyAnimator.SetBool("Moving", !isAttacking);
-
-            if (isAttacking && ShadowSpiritController.Instance != null)
-            {
-                FaceTarget(ShadowSpiritController.Instance.transform.position);
-            }
         }
     }
 
@@ -180,20 +168,33 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void GiveDamage()
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!playerInRange || isDead) return;
+        if (isDead) return;
 
-        // Apply health pressure
-        if (ShadowSpiritController.Instance != null)
+        // Enter attack mode when player enters range
+        if (other.CompareTag("Player"))
         {
-            ShadowSpiritController.Instance.TakeDamage(attackDamage);
+            playerInRange = true;
+
+            if (ShadowSpiritController.Instance != null)
+            {
+                FaceTarget(ShadowSpiritController.Instance.transform.position);
+            }
         }
+    }
 
-        // Apply score pressure
-        if (ScoreManager.Instance != null)
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (isDead) return;
+
+        // Return to patrol when player leaves range
+        if (other.CompareTag("Player"))
         {
-            ScoreManager.Instance.SubtractBatPoints(ScoreManager.Instance.EnemyDamage);
+            playerInRange = false;
+            SetAttackAnimation(false);
         }
     }
 
@@ -211,18 +212,18 @@ public class EnemyController : MonoBehaviour
             enemyAnimator.SetTrigger("Dead");
             enemyAnimator.SetBool("Attacking", false);
             enemyAnimator.SetBool("Moving", false);
-
-            // Face player for death animation consistency
-            if (ShadowSpiritController.Instance != null)
-            {
-                FaceTarget(ShadowSpiritController.Instance.transform.position);
-            }
         }
 
 
         if (SoundManager.Instance != null)
         {
             SoundManager.Instance.Play(Sounds.EnemyDeath);
+        }
+
+
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.AddBatPoints(ScoreManager.Instance.EnemyKillPoints);
         }
 
         // Prevent further collisions
@@ -243,15 +244,12 @@ public class EnemyController : MonoBehaviour
 
     public void Respawn()
     {
-        ResetEnemy();
         gameObject.SetActive(true);
-    }
 
-    private void ResetEnemy()
-    {
         isDead = false;
         canAttack = true;
-        playerInRange = false;
+        playerInRange= false;
+        isWaiting = false;
 
         transform.position = spawnPoisition;
 
