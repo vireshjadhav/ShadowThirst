@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class ShieldButtonController : MonoBehaviour, IPointerDownHandler
@@ -68,15 +69,16 @@ public class ShieldButtonController : MonoBehaviour, IPointerDownHandler
     {
         // Prevent null reference or invalid state
         if (ShadowSpiritController.Instance == null) return;
-        if (!ShadowSpiritController.Instance.isActiveAndEnabled) return;
+        if (!ShadowSpiritController.Instance.HaveShield) return;
         if (isCooldownActive) return;
-   
+
+
         // Activate shield logic handled by player controller
         ShadowSpiritController.Instance.ActivateShield();
 
         cooldownTimer = ShadowSpiritController.Instance.ShieldLife;
-        shieldCooldown.fillAmount = 1f;
 
+        shieldCooldown.fillAmount = 1f;
         isCooldownActive = true;
 
         SetAlpha(minAlpha);

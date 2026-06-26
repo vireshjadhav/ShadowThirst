@@ -437,8 +437,6 @@ public class ShadowSpiritController : MonoBehaviour
             rb2D.simulated = false;
         }
 
-        Debug.Log($"Game Time from start:  {Time.time - startTime}");
-
         if (deathCoroutine != null)
         {
             StopCoroutine(deathCoroutine);

@@ -84,7 +84,7 @@ public class EnemyController : MonoBehaviour
     {
         enemyAnimator.SetBool("Moving", false);
 
-        if (canAttack && !isWaiting) return;
+        if (!canAttack && isWaiting) return;
         
         isWaiting = true;
         StartCoroutine(AttackRoutine());
